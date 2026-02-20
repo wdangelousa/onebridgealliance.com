@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onebridge Stalwart - Portal de Parceiros</title>
+    <!-- Fonte Terrestre Aprimorada -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Linkando a Estrutura Profissional de CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Cabeçalho / Ponte de Comando -->
+    <header>
+        <div class="logo">
+            <!-- Imagem da Logo Mestre (Ecrãs Grandes) -->
+            <img src="logo.png" alt="Onebridge Stalwart Logo" class="logo-img">
+            <!-- Imagem Logomark (Resoluções Menores ou Menu Mobile) -->
+            <img src="logomark.png" alt="Onebridge Mark" class="logomark-img">
+        </div>
+        <nav id="spaceship-nav">
+            <!-- Programando coordenadas GPS das abas de navegação -->
+            <button class="tab-btn active" data-target="pitch-deck">Pitch Deck</button>
+            <button class="tab-btn" data-target="arsenal">Arsenal</button>
+            <button class="tab-btn" data-target="tabela-b2b">Tabela B2B</button>
+            <button class="tab-btn" data-target="financeiro">Financeiro</button>
+            <button class="tab-btn" data-target="playbook">Playbook</button>
+            <button class="tab-btn" data-target="equipe">Equipe</button>
+            <button class="tab-btn" data-target="ncnda">NCNDA / Assinar</button>
+            <button class="tab-btn" data-target="faq">FAQ</button>
+            <button class="tab-btn" data-target="proximos">Missão</button>
+        </nav>
+    </header>
+
+    <!-- Compartimento de Carga Principal (Single Page Application) -->
+    <main>
+
+        <!-- 1. PITCH DECK -->
+        <section id="pitch-deck" class="section active">
+            <div class="hero">
+                <div class="hero-content">
+                    <span class="hero-badge">Acesso Classificado Alpha</span>
+
+                    <div class="pitch-container">
+                        <!-- Slide 1 -->
+                        <div class="pitch-slide active">
+                            <h1>Nós fazemos o pesado.<br>A glória é toda sua.</h1>
+                            <p>Bem-vindo à Onebridge Stalwart. Nós somos a sua estrutura vital e silenciosa ('White
+                                Label') nos EUA. Operamos nos bastidores garantindo precisão cirúrgica, enquanto sua
+                                firma leva todo o crédito e lucro.</p>
+                        </div>
+                        <!-- (Outros Slides) -->
+                        <div class="pitch-slide">
+                            <h1>A Força Invisível</h1>
+                            <p>Parceiros jurídicos e contábeis usam nossa infraestrutura impenetrável em Orlando para
+                                entregar sofisticação e proteção de ativos sem precisar contratar um único novo
+                                funcionário.</p>
+                        </div>
+                        <div class="pitch-slide">
+                            <h1>Venda Proteção Absoluta</h1>
+                            <p>Deixe o operacional conosco. Foque apenas em prospectar seus clientes VIP. Nós
+                                estruturamos e blindamos o patrimônio deles em solo americano como verdadeiros fantasmas
+                                fiscais legais.</p>
+                        </div>
+                        <div class="pitch-slide">
+                            <h1>Crescimento Exponencial</h1>
+                            <p>Transforme sua atuação local em uma potência global. Incorpore serviços de elite como o
+                                Wyoming Statutory Foundation e gestão de business banking no mesmo instante da aliança.
+                            </p>
+                        </div>
+                        <div class="pitch-slide">
+                            <h1>Ecossistema Blindado</h1>
+                            <p>Nosso conhecimento profundo das leis internacionais oferece um escudo de proteção entre o
+                                fisco e as riquezas construídas com suor por seus clientes.</p>
+                        </div>
+                        <div class="pitch-slide">
+                            <h1>Lucro Não Compartilhado</h1>
+                            <p>Nós compramos serviços; você vende autoridade. Adicione o markup que julgar necessário. É
+                                o seu negócio, nós somos só o chassi e o motor que fazem ele voar.</p>
+                        </div>
+                        <div class="pitch-slide">
+                            <h1>O Pacto Máximo (NCNDA)</h1>
+                            <p>Nada de roubo de clientes. Nós assinamos termos draconianos não circundantes e de
+                                confidencialidade on-site através do nosso portal (via SignWell).</p>
+                        </div>
+                        <div class="pitch-slide">
+                            <h1>Comunicação Furtiva</h1>
+                            <p>Para o cliente, os documentos saem de você. Eles nunca ouvem o nome Onebridge. Todo logo,
+                                toda folha enviada tem a essência da sua firma e da sua marca.</p>
+                        </div>
+                        <div class="pitch-slide">
+                            <h1>O Arsenal à Disposição</h1>
+                            <p>Desde LLCs até as intrincadas malhas do ITIN e Compliance. Nossa esteira de produção não
+                                tem limites práticos sobre o que consegue montar. Pediu, o artefato é forjado.</p>
+                        </div>
+                        <div class="pitch-slide">
+                            <h1>A Invasão Começa Hoje</h1>
+                            <p>A aliança está feita. Não procure criar do zero o que já dominamos. Use o atalho
+                                definitivo. Acesse o arsenal abaixo e prepare os propulsores para decolar.</p>
+                        </div>
+                    </div>
+
+                    <div class="slide-nav">
+                        <!-- 10 dots do Pitch Deck -->
+                        <div class="slide-dot active" onclick="changeSlide(0)"></div>
+                        <div class="slide-dot" onclick="changeSlide(1)"></div>
+                        <div class="slide-dot" onclick="changeSlide(2)"></div>
+                        <div class="slide-dot" onclick="changeSlide(3)"></div>
+                        <div class="slide-dot" onclick="changeSlide(4)"></div>
+                        <div class="slide-dot" onclick="changeSlide(5)"></div>
+                        <div class="slide-dot" onclick="changeSlide(6)"></div>
+                        <div class="slide-dot" onclick="changeSlide(7)"></div>
+                        <div class="slide-dot" onclick="changeSlide(8)"></div>
+                        <div class="slide-dot" onclick="changeSlide(9)"></div>
+                    </div>
+
+                    <div class="hero-buttons" style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                        <button class="btn-cta"
+                            onclick="document.querySelector('[data-target=\'arsenal\']').click()">Acessar Arsenal
+                            Tecnológico</button>
+                        <button class="btn-cta btn-outline"
+                            onclick="document.querySelector('[data-target=\'proximos\']').click()">Agendar Call</button>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- Arte Central: Ponte Conectando aos EUA (HUD Geográfico Premium) -->
+                    <svg class="usa-bridge-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg"
+                        style="width: 100%; height: auto; max-width: 500px;">
+                        <defs>
+                            <linearGradient id="bridgeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#00E5FF" />
+                                <stop offset="50%" stop-color="#1ED697" />
+                                <stop offset="100%" stop-color="#B6F667" />
+                            </linearGradient>
+                            <radialGradient id="mapGlow" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="rgba(30, 214, 151, 0.15)" />
+                                <stop offset="100%" stop-color="transparent" />
+                            </radialGradient>
+                            <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+                                <feGaussianBlur stdDeviation="10" result="blur" />
+                                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                            </filter>
+                            <filter id="lightGlow" x="-20%" y="-20%" width="140%" height="140%">
+                                <feGaussianBlur stdDeviation="5" result="blur" />
+                                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                            </filter>
+                        </defs>
+
+                        <!-- Background Rings -->
+                        <g style="transform-origin: center; animation: spinCore 60s linear infinite;" opacity="0.3">
+                            <circle cx="250" cy="250" r="230" fill="none" stroke="var(--brand-green)" stroke-width="1"
+                                stroke-dasharray="2 10" />
+                            <circle cx="250" cy="250" r="180" fill="none" stroke="#00E5FF" stroke-width="2"
+                                stroke-dasharray="40 30" />
+                        </g>
+
+                        <!-- USA Map Hologram -->
+                        <g transform="translate(45, 45) scale(1.15)" opacity="0.8">
+                            <!-- Main Map Silhouette Base -->
+                            <path
+                                d="M 40,30 L 60,32 L 80,45 L 100,35 L 140,38 L 180,40 L 185,25 L 200,35 L 210,55 L 230,45 L 240,70 L 250,90 L 260,70 L 260,55 L 280,50 L 310,30 L 340,5 L 360,20 L 350,45 L 365,55 L 350,65 L 330,90 L 320,120 L 310,140 L 340,210 L 315,230 L 290,170 L 270,165 L 250,175 L 240,190 L 220,190 L 205,240 L 180,200 L 150,210 L 130,210 L 90,200 L 70,215 L 60,190 L 30,120 L 25,80 Z"
+                                fill="url(#mapGlow)" stroke="var(--brand-green)" stroke-width="1.5"
+                                stroke-linejoin="round" stroke-dasharray="4 2" filter="url(#neonGlow)" />
+
+                            <!-- Sharp Vector Outline -->
+                            <path
+                                d="M 40,30 L 60,32 L 80,45 L 100,35 L 140,38 L 180,40 L 185,25 L 200,35 L 210,55 L 230,45 L 240,70 L 250,90 L 260,70 L 260,55 L 280,50 L 310,30 L 340,5 L 360,20 L 350,45 L 365,55 L 350,65 L 330,90 L 320,120 L 310,140 L 340,210 L 315,230 L 290,170 L 270,165 L 250,175 L 240,190 L 220,190 L 205,240 L 180,200 L 150,210 L 130,210 L 90,200 L 70,215 L 60,190 L 30,120 L 25,80 Z"
+                                fill="none" stroke="var(--brand-green)" stroke-width="1" stroke-linejoin="round"
+                                opacity="0.8" />
+
+                            <!-- Interior Tech Lines (Grid/Nodes) -->
+                            <polyline points="40,30 90,100 150,100 180,200" fill="none" stroke="rgba(0, 229, 255, 0.4)"
+                                stroke-width="1" stroke-dasharray="3 3" />
+                            <polyline points="100,35 150,100 230,45" fill="none" stroke="rgba(0, 229, 255, 0.4)"
+                                stroke-width="1" stroke-dasharray="3 3" />
+                            <polyline points="310,30 250,90 270,165" fill="none" stroke="rgba(0, 229, 255, 0.4)"
+                                stroke-width="1" stroke-dasharray="3 3" />
+                            <polyline points="250,90 320,190" fill="none" stroke="rgba(0, 229, 255, 0.4)"
+                                stroke-width="1" stroke-dasharray="3 3" />
+                            <polyline points="150,100 250,90" fill="none" stroke="rgba(0, 229, 255, 0.4)"
+                                stroke-width="1" stroke-dasharray="3 3" />
+
+                            <!-- Active Strategic HUD Nodes -->
+                            <!-- NY -->
+                            <circle cx="320" cy="70" r="3" fill="#00E5FF" filter="url(#lightGlow)" />
+                            <!-- LA -->
+                            <circle cx="60" cy="180" r="3" fill="#00E5FF" filter="url(#lightGlow)" />
+                            <!-- TX -->
+                            <circle cx="190" cy="210" r="3" fill="#00E5FF" filter="url(#lightGlow)" />
+                            <!-- IL (Chicago) -->
+                            <circle cx="230" cy="85" r="3" fill="#00E5FF" filter="url(#lightGlow)" />
+
+                            <!-- TARGET: ORLANDO FL HO -->
+                            <!-- Orlando is roughly at 320, 190 in this map scale -->
+                            <circle cx="320" cy="190" r="6" fill="var(--brand-green)" filter="url(#lightGlow)" />
+                            <circle cx="320" cy="190" r="14" fill="none" stroke="#B6F667" stroke-width="2"
+                                style="animation: pulseGlow 1.5s infinite alternate;" />
+                            <circle cx="320" cy="190" r="22" fill="none" stroke="var(--brand-green)" stroke-width="1"
+                                stroke-dasharray="2 4" style="animation: spinCore 10s linear infinite reverse;" />
+
+                            <text x="345" y="195" fill="#FFFFFF" font-family="Montserrat, sans-serif" font-size="10"
+                                font-weight="700" letter-spacing="1">ORLANDO HQ</text>
+                        </g>
+
+                        <!-- The Bridge Connection from Global (Bottom Left) to Orlando -->
+                        <!-- With transform scale(1.15) translate(45,45), Orlando is roughly at X: 413, Y: 263 -->
+                        <g>
+                            <!-- Global Entry Node -->
+                            <circle cx="90" cy="380" r="5" fill="#00E5FF" filter="url(#lightGlow)" />
+                            <circle cx="90" cy="380" r="12" fill="none" stroke="#00E5FF" stroke-width="1.5"
+                                stroke-dasharray="2 4" style="animation: spinCore 8s linear infinite;" />
+                            <text x="50" y="415" fill="#00E5FF" font-family="Montserrat, sans-serif" font-size="11"
+                                font-weight="600" letter-spacing="1">PARCEIRO GLOBAL</text>
+
+                            <!-- Central Main Bridge Arch -->
+                            <!-- Start: 100, 375 | Control: 200, 250 | End: 413, 263 -->
+                            <path d="M 100,375 Q 230,230 405,263" fill="none" stroke="url(#bridgeGrad)" stroke-width="5"
+                                stroke-linecap="round" filter="url(#neonGlow)" />
+                            <path d="M 100,375 Q 230,230 405,263" fill="none" stroke="#FFFFFF" stroke-width="1.5"
+                                stroke-linecap="round" />
+
+                            <!-- Holographic Structural Support Lines -->
+                            <path d="M 120,400 L 150,380 L 413,275" fill="none" stroke="rgba(30, 214, 151, 0.4)"
+                                stroke-width="1" stroke-dasharray="4 4" />
+                            <path d="M 70,360 L 160,310 L 400,250" fill="none" stroke="rgba(0, 229, 255, 0.3)"
+                                stroke-width="1" stroke-dasharray="2 6" />
+
+                            <!-- Animated Data Particles Streaming Across the Bridge -->
+                            <circle r="4" fill="#FFFFFF" filter="url(#lightGlow)">
+                                <animateMotion dur="2.5s" repeatCount="indefinite" path="M 100,375 Q 230,230 405,263" />
+                            </circle>
+                            <circle r="3" fill="#B6F667" filter="url(#lightGlow)">
+                                <animateMotion dur="2s" repeatCount="indefinite" path="M 100,375 Q 230,230 405,263"
+                                    begin="1s" />
+                            </circle>
+                            <circle r="5" fill="#00E5FF" filter="url(#lightGlow)">
+                                <animateMotion dur="3s" repeatCount="indefinite" path="M 100,375 Q 230,230 405,263"
+                                    begin="0.8s" />
+                            </circle>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. ARSENAL -->
+        <section id="arsenal" class="section">
+            <span class="hero-badge">Tecnologia Disponível Superior</span>
+            <h2>Arsenal de Serviços</h2>
+            <p>Seus clientes pedem. Você aprova. Nós executamos em alta gravidade sob sua bandeira.</p>
+
+            <h3
+                style="margin-top: 3rem; color: var(--brand-green); border-bottom: 1px solid var(--plasma-border); padding-bottom: 1rem;">
+                Estruturação Corporativa & Offshores</h3>
+            <div class="grid">
+                <!-- Destaque WSF -->
+                <div class="card wsf-highlight" style="margin-top: 0;">
+                    <div class="wsf-icon">
+                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="var(--brand-green)"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                            <polyline points="2 17 12 22 22 17"></polyline>
+                            <polyline points="2 12 12 17 22 12"></polyline>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3>A tecnologia mais avançada:</h3>
+                        <h2>W.S.F.</h2>
+                        <h4
+                            style="color:var(--text-light); margin-bottom: 1rem; font-weight: 300; letter-spacing: 1px;">
+                            Wyoming Statutory Foundation</h4>
+                        <p>A "Estrela da Morte" da proteção patrimonial nos EUA. Semelhante a um trust, mas blinda o
+                            patrimônio do cliente de forma autônoma garantindo impenetrábilidade jurídica.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Abertura Delaware, Flórida e Wyoming</h3>
+                    <p>Estrutura rápida e limpa de LLCs ou Corps nos principais estados americanos. Anonimato e
+                        vantagens tributárias para operações internacionais e e-commerces.</p>
+                </div>
+                <div class="card">
+                    <h3>Abertura Off Shore B.V.I</h3>
+                    <p>Constituição de IBCs nas Ilhas Virgens Britânicas (British Virgin Islands). Isenção total de
+                        impostos corporativos para holdings familiares e operacionais puras.</p>
+                </div>
+                <div class="card">
+                    <h3>Abertura Conta Bancária</h3>
+                    <p>Conexões privilegiadas em instituições selecionadas para forjar contas corporativas americanas
+                        sem fricção para seus clientes internacionais, de forma totalmente remota.</p>
+                </div>
+            </div>
+
+            <h3
+                style="margin-top: 4rem; color: var(--brand-green); border-bottom: 1px solid var(--plasma-border); padding-bottom: 1rem;">
+                Manutenção & Compliance</h3>
+            <div class="grid">
+                <div class="card">
+                    <h3>Agente Registrado (DE, FL, WY)</h3>
+                    <p>Recebimento oficial de serviço de processo e notificações estaduais, mantendo as empresas do seu
+                        cliente em "Good Standing" com o departamento de estado.</p>
+                </div>
+                <div class="card">
+                    <h3>Compliance Anual (EUA & B.V.I)</h3>
+                    <p>Submissão de Annual Reports, taxas de franquia, BOI Reporting (Beneficial Ownership) e renovações
+                        estruturais exigidas para evitar penalidades multas draconianas do fisco.</p>
+                </div>
+                <div class="card">
+                    <h3>Mudanças (Amendments) & Dissoluções</h3>
+                    <p>Alterações societárias complexas, adições de membros e encerramento (Dissolução) totalmente
+                        regular de operações na Flórida, Delaware ou Wyoming com obtenção de clearance tributário.</p>
+                </div>
+            </div>
+
+            <h3
+                style="margin-top: 4rem; color: var(--brand-green); border-bottom: 1px solid var(--plasma-border); padding-bottom: 1rem;">
+                Consultoria, Planejamento & Propriedade</h3>
+            <div class="grid">
+                <div class="card">
+                    <h3>Planejamento Tributário (Básico e Avançado)</h3>
+                    <p>Mapeamento de riscos e mitigação severa de passivos através de rotas legais e estruturas
+                        tax-free. Redução agressiva e legal da carga tributária internacional do seu cliente.</p>
+                </div>
+                <div class="card">
+                    <h3>Registro de Marca USPTO</h3>
+                    <p>Defesa absoluta do Capital Intelectual nos EUA e registro federal de marcas perante o United
+                        States Patent and Trademark Office, categorizado por classe.</p>
+                </div>
+                <div class="card">
+                    <h3>Outros (Apostilamento, Docs, Business Plan)</h3>
+                    <p>Traduções juramentadas, apostilamento de Haia rápido de documentos de imigração, redação de
+                        planos de negócios profissionais e customização total de contratos estratégicos.</p>
+                </div>
+            </div>
+
+            <h3
+                style="margin-top: 4rem; color: var(--brand-green); border-bottom: 1px solid var(--plasma-border); padding-bottom: 1rem;">
+                Imigração Corporativa & Vistos Americanos</h3>
+            <div class="grid">
+                <div class="card">
+                    <h3>Vistos de Habilidades & Investimento (EB-1, EB-2, EB-3)</h3>
+                    <p>Estruturamos as petições de Green Card definitivas para clientes baseados em habilidades
+                        extraordinárias, graduações avançadas ou patrocínio corporativo.</p>
+                </div>
+                <div class="card">
+                    <h3>Vistos Corporativos e Work (E-2, L-1, O-1)</h3>
+                    <p>Processamento rápido para Vistos de Tratado de Investidor (E-2), Transferência Intercompany
+                        Executiva (L-1) e Vistos para indivíduos com Habilidades em evidência na mídia (O-1).</p>
+                </div>
+                <div class="card">
+                    <h3>Defesas Imigratórias (RFE, Appeal, Refile)</h3>
+                    <p>Resgate agressivo de processos travados no USCIS. Respostas a Requests For Evidence, Moções de
+                        Apelamento e reestruturação total para novos envios (Refiles).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. TABELA B2B -->
+        <section id="tabela-b2b" class="section">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <span class="hero-badge"
+                    style="border-color: #00E5FF; color: #00E5FF; background: rgba(0, 229, 255, 0.1); box-shadow: 0 0 15px rgba(0, 229, 255, 0.2);">Confidencial
+                    Onebridge</span>
+                <h2>Tabela Base (B2B)</h2>
+                <p style="max-width: 700px; margin: 0 auto;">Estes são os custos <b>atacadistas e operacionais</b> da
+                    Onebridge para a sua firma. Adicione a sua margem (over) por cima do valor base listado aqui, e
+                    fature o seu cliente final com lucro absoluto.</p>
+            </div>
+
+            <div class="table-container">
+                <table class="b2b-table">
+                    <thead>
+                        <tr>
+                            <th>Serviço (Base Operation)</th>
+                            <th style="text-align: right;">Custo Base B2B (US$)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="category-row">
+                            <td colspan="2">Aberturas de Empresas & Contas Bancárias</td>
+                        </tr>
+                        <tr>
+                            <td>Abertura Conta Bancária</td>
+                            <td class="price">$ 350.00</td>
+                        </tr>
+                        <tr>
+                            <td>Abertura Delaware</td>
+                            <td class="price">$ 1,790.00</td>
+                        </tr>
+                        <tr>
+                            <td>Abertura Flórida</td>
+                            <td class="price">$ 990.00</td>
+                        </tr>
+                        <tr>
+                            <td>Abertura Off Shore B.V.I</td>
+                            <td class="price">$ 3,600.00</td>
+                        </tr>
+                        <tr>
+                            <td>Abertura Wyoming</td>
+                            <td class="price">$ 1,790.00</td>
+                        </tr>
+
+                        <tr class="category-row">
+                            <td colspan="2">Governança Corporativa & Compliance</td>
+                        </tr>
+                        <tr>
+                            <td>Agente Registrado DE</td>
+                            <td class="price">$ 220.00</td>
+                        </tr>
+                        <tr>
+                            <td>Agente Registrado FL</td>
+                            <td class="price">$ 220.00</td>
+                        </tr>
+                        <tr>
+                            <td>Agente Registrado WY</td>
+                            <td class="price">$ 220.00</td>
+                        </tr>
+                        <tr>
+                            <td>Compliance Anual Flórida</td>
+                            <td class="price">$ 440.00</td>
+                        </tr>
+                        <tr>
+                            <td>Compliance B.V.I</td>
+                            <td class="price">$ 2,860.00</td>
+                        </tr>
+                        <tr>
+                            <td>Compliance Delaware CORP</td>
+                            <td class="price">$ 790.00</td>
+                        </tr>
+                        <tr>
+                            <td>Compliance Delaware LLC</td>
+                            <td class="price">$ 790.00</td>
+                        </tr>
+                        <tr>
+                            <td>Compliance Wyoming</td>
+                            <td class="price">$ 440.00</td>
+                        </tr>
+                        <tr>
+                            <td>Mudanças/Amendments</td>
+                            <td class="price">$ 440.00</td>
+                        </tr>
+                        <tr>
+                            <td>Dissolução Delaware</td>
+                            <td class="price">$ 680.00</td>
+                        </tr>
+                        <tr>
+                            <td>Dissolução Flórida</td>
+                            <td class="price">$ 370.00</td>
+                        </tr>
+                        <tr>
+                            <td>Dissolução Wyoming</td>
+                            <td class="price">$ 680.00</td>
+                        </tr>
+
+                        <tr class="category-row">
+                            <td colspan="2">Consultorias, Documentos & Propriedade Intelectual</td>
+                        </tr>
+                        <tr>
+                            <td>Apostilamento e Tradução</td>
+                            <td class="price">$ 3,600.00</td>
+                        </tr>
+                        <tr>
+                            <td>Business Plan</td>
+                            <td class="price">$ 3,800.00</td>
+                        </tr>
+                        <tr>
+                            <td>Consultoria Contadores (hora)</td>
+                            <td class="price">$ 390.00</td>
+                        </tr>
+                        <tr>
+                            <td>Customização Documentos</td>
+                            <td class="price">$ 800.00</td>
+                        </tr>
+                        <tr>
+                            <td>Planejamento Tributário Avançado</td>
+                            <td class="price">$ 4,800.00</td>
+                        </tr>
+                        <tr>
+                            <td>Planejamento Tributário Básico</td>
+                            <td class="price">$ 3,200.00</td>
+                        </tr>
+                        <tr>
+                            <td>Registro Marca USPTO p/ classe</td>
+                            <td class="price">$ 2,500.00</td>
+                        </tr>
+
+                        <tr class="category-row">
+                            <td colspan="2">Vistos Americanos & Imigração Corporativa</td>
+                        </tr>
+                        <tr>
+                            <td>Visto EB-1</td>
+                            <td class="price">$ 16,900.00</td>
+                        </tr>
+                        <tr>
+                            <td>Visto EB-2</td>
+                            <td class="price">$ 16,900.00</td>
+                        </tr>
+                        <tr>
+                            <td>Visto EB-3</td>
+                            <td class="price">$ 12,900.00</td>
+                        </tr>
+                        <tr>
+                            <td>Visto E-2</td>
+                            <td class="price">$ 12,900.00</td>
+                        </tr>
+                        <tr>
+                            <td>Visto L-1</td>
+                            <td class="price">$ 12,900.00</td>
+                        </tr>
+                        <tr>
+                            <td>Visto O-1</td>
+                            <td class="price">$ 12,900.00</td>
+                        </tr>
+                        <tr>
+                            <td>Visto - RFE</td>
+                            <td class="price">$ 1,000.00</td>
+                        </tr>
+                        <tr>
+                            <td>Visto - Appeal / Motion</td>
+                            <td class="price">$ 2,800.00</td>
+                        </tr>
+                        <tr>
+                            <td>Visto - Refile</td>
+                            <td class="price">$ 2,800.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <p style="color: var(--text-muted); font-size: 0.95rem;">* Note: A tecnologia avançada W.S.F. e soluções
+                    customizadas massivas exigem orçamento prévio com a equipe base.</p>
+            </div>
+        </section>
+
+        <!-- 3. FINANCEIRO -->
+        <section id="financeiro" class="section">
+            <span class="hero-badge">Sistema Monetário Vantajoso</span>
+            <div style="text-align: center;">
+                <h2>Modelo Totalmente Mutuamente Benéfico</h2>
+                <p style="max-width: 700px; margin: 0 auto 3rem;">A aliança Onebridge é indestrutível. Nós somos os
+                    fabricantes, você é a grife.</p>
+            </div>
+
+            <div class="finance-wrapper">
+                <div class="finance-card card">
+                    <h3 style="color: var(--text-muted); text-transform: uppercase;">O Markup / Lucro Pertence a você
+                    </h3>
+                    <div class="big-number">100%</div>
+                    <p style="font-size: 1.2rem; margin-bottom: 2rem;">Todo o lucro excedente gerado nas operações cai
+                        direto nas suas reservas.</p>
+                    <p>Cobramos da sua firma o custo B2B base. O preço final do seu cliente corporativo obedece
+                        unicamente as margens que você ditar. Sem royalties.</p>
+
+                    <div class="flow-diagram">
+                        <div class="flow-step">
+                            <div class="flow-step-num">1</div>
+                            <h4 style="margin-bottom: 0.5rem; color:white;">Venda</h4>
+                            <p style="font-size:0.9rem;">Parceiro vende o serviço (US$ 3.000)</p>
+                        </div>
+                        <div class="flow-arrow">➔</div>
+                        <div class="flow-step">
+                            <div class="flow-step-num">2</div>
+                            <h4 style="margin-bottom: 0.5rem; color:white;">Custo Base</h4>
+                            <p style="font-size:0.9rem;">Faturamos operação B2B (US$ 1.200)</p>
+                        </div>
+                        <div class="flow-arrow">➔</div>
+                        <div class="flow-step">
+                            <div class="flow-step-num">3</div>
+                            <h4 style="margin-bottom: 0.5rem; color:white;">Lucro Seguro</h4>
+                            <p style="font-size:0.9rem;">Saldo de US$ 1.800 é seu lucro absoluto.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. PLAYBOOK -->
+        <section id="playbook" class="section">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <span class="hero-badge"
+                    style="border-color: #B6F667; color: #B6F667; background: rgba(182, 246, 103, 0.1); box-shadow: 0 0 15px rgba(182, 246, 103, 0.2);">Estratégia
+                    Consultiva VIP</span>
+                <h2
+                    style="font-size: 3rem; background: linear-gradient(90deg, #FFFFFF, #B6F667); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                    O Playbook da Parceria</h2>
+                <p style="max-width: 700px; margin: 0 auto;">Um roteiro exclusivo de alto padrão desenhado para elevar a
+                    sua firma à excelência em estruturação offshore e proteção patrimonial.</p>
+            </div>
+
+            <div class="playbook-timeline">
+                <div class="timeline-path"></div>
+
+                <!-- Step 1 -->
+                <div class="timeline-step">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content glass-card">
+                        <div class="step-number">01</div>
+                        <h3>Identificando o Cliente Ideal</h3>
+                        <p>Foque em perfis de altíssima liquidez (agrobusiness, e-commerces, holdings familiares) que
+                            buscam sucessão segura e mitigação robusta de riscos tributários. O alvo é blindagem, não
+                            apenas abertura de empresas.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="timeline-step right">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content glass-card">
+                        <div class="step-number">02</div>
+                        <h3>A Abordagem de Valor</h3>
+                        <p>Posicione sua firma como um escudo impenetrável. Demonstre como instrumentos avançados (ex:
+                            Wyoming Statutory Foundation) garantem a preservação intergeracional do legado do cliente
+                            blindado contra escrutínios indevidos.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="timeline-step">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content glass-card">
+                        <div class="step-number">03</div>
+                        <h3>A Nossa Retaguarda</h3>
+                        <p>Assim que o cliente aprova, você aciona o nosso QG em Orlando. Operamos em completo "stealth
+                            mode", forjando as estruturas necessárias sob a bandeira da sua marca em tempo recorde de
+                            validação.</p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="timeline-step right">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content glass-card">
+                        <div class="step-number">04</div>
+                        <h3>Retenção e Crescimento</h3>
+                        <p>Com o patrimônio protegido e contas corporativas operantes, seu cliente confia o resto do
+                            portfólio a você. Escalone o modelo B2B adicionando markup de luxo sem a necessidade de
+                            escalar a sua folha de pagamento.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. EQUIPE -->
+        <section id="equipe" class="section">
+            <span class="hero-badge">A Ponte de Comando Principal</span>
+            <div style="text-align: center;">
+                <h2>Pontos de Contato Operacional</h2>
+                <p>Nossa equipe dedicada ao atendimento técnico exclusivo da sua firma.<br><small
+                        style="color: var(--text-muted);">(Nota: Esta seção lista a linha de frente de operações, não o
+                        quadro societário).</small></p>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-avatar">S</div>
+                    <h3>Samuel Marçal</h3>
+                    <div class="role">Head de Relacionamento</div>
+                    <p style="margin-bottom: 1rem;">Arquitetura master para proteção contra riscos de sucessão
+                        patrimonial e fluidez nas rotas do
+                        fisco.</p>
+                    <a href="mailto:samuel@onebridgestalwart.com"
+                        style="color: var(--brand-green); text-decoration: none; font-size: 0.95rem;">samuel@onebridgestalwart.com</a>
+                </div>
+                <div class="team-member">
+                    <div class="team-avatar">W</div>
+                    <h3>Walter D'Angelo</h3>
+                    <div class="role">Head Operacional</div>
+                    <p style="margin-bottom: 1rem;">Coordena propulsores burocráticos e conexões institucionais evitando
+                        rejeições de agências
+                        governamentais.</p>
+                    <a href="mailto:walter@onebridgestalwart.com"
+                        style="color: var(--brand-green); text-decoration: none; font-size: 0.95rem;">walter@onebridgestalwart.com</a>
+                </div>
+                <div class="team-member">
+                    <div class="team-avatar">L</div>
+                    <h3>Letícia Cruz</h3>
+                    <div class="role">Head</div>
+                    <p style="margin-bottom: 1rem;">Traduz jurídica e fisco internacional em operações intuitivas. O elo
+                        sem ruído direto do front ao
+                        back-office.</p>
+                    <a href="mailto:pay@onebridgestalwart.com"
+                        style="color: var(--brand-green); text-decoration: none; font-size: 0.95rem;">pay@onebridgestalwart.com</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. NCNDA & INTEGRAÇÃO SIGNWELL -->
+        <section id="ncnda" class="section">
+            <span class="hero-badge">O Pacto Irrevogável da Galáxia</span>
+            <div class="card ncnda-content">
+                <svg class="shield-icon" width="80" height="80" viewBox="0 0 24 24" fill="none"
+                    stroke="var(--brand-green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    <path d="M9 12l2 2 4-4"></path>
+                </svg>
+                <h2>Assine o Acordo de Confidencialidade On-site</h2>
+                <h3 style="color:var(--text-light); font-weight: 300; margin-bottom: 2rem;">Acordo NCNDA Totalmente
+                    Digital</h3>
+                <p style="font-size: 1.15rem; margin-bottom: 1.5rem; text-align: justify; color: #ced4da;">
+                    Entendemos a gravidade: você não traz seus clientes de alto valor se houver risco de perdê-los. Nós
+                    juramos jamais contornar seus honorários ou contatar seu cliente pelas suas costas.
+                    <br><br>
+                    <strong>Processo Acelerado:</strong> Assine nossa garantia (NCNDA) online agora mesmo usando a
+                    estrutura validada juridicamente do SignWell. Nenhum download, leitura ou envio via PDF chato.
+                    Conecte-se em 30 segundos e estabeleça a ponte sem fricção de tempo.
+                </p>
+
+                <div style="margin-top: 3rem; max-width: 500px; margin-inline: auto;">
+                    <div id="signwell-form-container"
+                        style="background: var(--card-bg); padding: 2rem; border-radius: 12px; border: 1px solid var(--plasma-border); text-align: left;">
+                        <h4 style="margin-bottom: 1rem; color: var(--brand-green);">Preencha para gerar o Acordo (NCNDA)
+                        </h4>
+
+                        <div style="margin-bottom: 1.5rem;">
+                            <label
+                                style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">Nome
+                                Completo / Representante Legal *</label>
+                            <input type="text" id="partner-name" placeholder="Ex: John Doe ou João Silva"
+                                style="width: 100%; padding: 0.8rem 1rem; border-radius: 8px; border: 1px solid var(--plasma-border); background: rgba(0,0,0,0.5); color: white; outline: none;"
+                                required>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem;">
+                            <label
+                                style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">Nome
+                                da Entidade / Empresa (Se aplicável)</label>
+                            <input type="text" id="partner-company"
+                                placeholder="Ex: JD Consulting LLC / Silva Contabilidade LTDA"
+                                style="width: 100%; padding: 0.8rem 1rem; border-radius: 8px; border: 1px solid var(--plasma-border); background: rgba(0,0,0,0.5); color: white; outline: none;">
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+                            <div>
+                                <label
+                                    style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">País
+                                    Base *</label>
+                                <input type="text" id="partner-country" placeholder="EUA, Brasil, Portugal..."
+                                    style="width: 100%; padding: 0.8rem 1rem; border-radius: 8px; border: 1px solid var(--plasma-border); background: rgba(0,0,0,0.5); color: white; outline: none;"
+                                    required>
+                            </div>
+                            <div>
+                                <label
+                                    style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">ID
+                                    Governamental (EIN/CNPJ/NIF)</label>
+                                <input type="text" id="partner-taxid" placeholder="Números de Registro"
+                                    style="width: 100%; padding: 0.8rem 1rem; border-radius: 8px; border: 1px solid var(--plasma-border); background: rgba(0,0,0,0.5); color: white; outline: none;">
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem;">
+                            <label
+                                style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">Endereço
+                                Completo</label>
+                            <input type="text" id="partner-address" placeholder="Sua base de operações"
+                                style="width: 100%; padding: 0.8rem 1rem; border-radius: 8px; border: 1px solid var(--plasma-border); background: rgba(0,0,0,0.5); color: white; outline: none;">
+                        </div>
+
+                        <div style="margin-bottom: 2rem;">
+                            <label
+                                style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">E-mail
+                                Corporativo *</label>
+                            <input type="email" id="partner-email" placeholder="contato@empresa.com"
+                                style="width: 100%; padding: 0.8rem 1rem; border-radius: 8px; border: 1px solid var(--plasma-border); background: rgba(0,0,0,0.5); color: white; outline: none;"
+                                required>
+                        </div>
+
+                        <button class="btn-cta" id="create-signwell-btn"
+                            style="width: 100%; display: flex; justify-content: center; font-size: 1rem;">
+                            <span id="btn-text">Estou de ACORDO. Gerar NCNDA ✍️</span>
+                            <span id="btn-loader" style="display: none;">Forjando Autenticação...</span>
+                        </button>
+                    </div>
+
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 15px;">Integração segura via API
+                        do SignWell.</p>
+
+                    <!-- Iframe do Embed SignWell -->
+                    <div class="signwell-container" id="signwell-container" style="margin-top: 2rem; display: none;">
+                        <!-- Nota: Trocar o src="about:blank" pelo URL do seu documento SignWell no formato signwell.com/document/... -->
+                        <iframe class="signwell-iframe" src="https://www.signwell.com/preview_embed_example/"
+                            title="Signwell Document Embed" allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+        </section>
+
+        <!-- 7. FAQ -->
+        <section id="faq" class="section">
+            <span class="hero-badge">Decodificador Lógico</span>
+            <h2>Perguntas Frequentes (FAQ)</h2>
+            <p>Respostas rápidas para as dúvidas de terráqueos ao fechar nossa aliança.</p>
+
+            <div class="faq-wrapper">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>O cliente final saberá do envolvimento da Onebridge Stalwart?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Negativo. Operamos no stealth mode absoluto. Assumimos o manto da sua marca. Os documentos
+                            irão sair configurados com os visuais da sua firma.</p>
+                    </div>
+                </div>
+                <!-- ... Adicionar mais itens do acordeon mantidos aqui ... -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>A estrutura WSF serve para qualquer perfil?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Não. É um "bunker financeiro" robusto usado em preservação familiar isenta em Wyoming e
+                            operações holdings com enorme capitalização.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. PRÓXIMOS PASSOS -->
+        <section id="proximos" class="section">
+            <span class="hero-badge">Teletransporte Iniciado</span>
+            <div style="text-align: center;">
+                <h2>Invasão do Mercado</h2>
+                <p>O tempo não ressurge. Finalize as etapas integradas.</p>
+            </div>
+
+            <div class="grid" style="margin-top: 3rem;">
+                <div class="card" style="text-align: center;">
+                    <div
+                        style="font-size: 3rem; color: var(--brand-green); font-weight: 800; margin-bottom: 1rem; opacity: 0.5;">
+                        01</div>
+                    <h3 style="color:white;">Assinatura do Pacto (NCNDA)</h3>
+                    <p>Feita na seção acima via embedded SignWell. Pacto selado de lealdade e proteção de honorários
+                        entre as bases.</p>
+                </div>
+                <div class="card" style="text-align: center;">
+                    <div
+                        style="font-size: 3rem; color: var(--brand-green); font-weight: 800; margin-bottom: 1rem; opacity: 0.5;">
+                        02</div>
+                    <h3 style="color:white;">Briefing Tático (Call)</h3>
+                    <p>Agendamento com Samuel, Walter e Letícia para validação das entregas, dos clientes já agendados e
+                        alinhamento do markup B2B.</p>
+                </div>
+                <div class="card" style="text-align: center;">
+                    <div
+                        style="font-size: 3rem; color: var(--brand-green); font-weight: 800; margin-bottom: 1rem; opacity: 0.5;">
+                        03</div>
+                    <h3 style="color:white;">Acesso Master</h3>
+                    <p>Sua firma recebe chaves para portais onlines, tabelas de custo base por atacado e todas as rotas
+                        de acionamentos imediatos e suporte.</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 5rem;">
+                <button class="btn-cta" style="font-size: 1.3rem; padding: 1.5rem 4rem;">
+                    Agendar Call Com a Equipe
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" style="margin-left: 10px;">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 16 16 12 12 8"></polyline>
+                        <line x1="8" y1="12" x2="16" y2="12"></line>
+                    </svg>
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Importando Lógica Modular da Nave (JS) -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

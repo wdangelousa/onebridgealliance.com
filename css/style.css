@@ -1,0 +1,958 @@
+/* Inicializando os propulsores (Reset geral) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Configuração de Energia do Núcleo (Variáveis alienígenas premium) */
+:root {
+    --bg-deep: #0B131A;
+    /* Navegação Profunda */
+    --brand-green: #1ED697;
+    /* Energia Verde */
+    --plasma-border: rgba(103, 246, 197, 0.30);
+    /* Bordas de Plasma */
+    --text-light: #E0E6ED;
+    --text-muted: #8B9AAB;
+    --card-bg: rgba(11, 19, 26, 0.6);
+    --glass-bg: rgba(255, 255, 255, 0.02);
+    --glass-border: rgba(255, 255, 255, 0.05);
+}
+
+/* Ambiente da Nave (Body) */
+body {
+    background-color: var(--bg-deep);
+    color: var(--text-light);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* Navbar estilo Ponte de Comando */
+header {
+    background: rgba(11, 19, 26, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--plasma-border);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img,
+.logomark-img {
+    height: 48px;
+    /* Altura ideal projetada para o menu Mestre */
+    width: auto;
+    object-fit: contain;
+    /* Filtro Matemático que transforma a imagem na exata cor Verde Plasma (#1ED697) */
+    filter: brightness(0) saturate(100%) invert(69%) sepia(85%) saturate(306%) hue-rotate(114deg) brightness(97%) contrast(93%);
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.logomark-img {
+    display: none;
+    /* Inicia Oculto no Desktop */
+}
+
+.logo-img:hover,
+.logomark-img:hover {
+    transform: scale(1.02);
+    filter: brightness(0) saturate(100%) invert(75%) sepia(90%) saturate(400%) hue-rotate(114deg) brightness(110%) contrast(105%);
+    cursor: pointer;
+}
+
+/* Menu de Navegação - Painel de Controle (Abas) */
+nav {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    max-width: 75%;
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+nav::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
+}
+
+.tab-btn {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid transparent;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tab-btn:hover {
+    color: white;
+    background: var(--glass-bg);
+    border-color: var(--plasma-border);
+}
+
+.tab-btn.active {
+    color: var(--bg-deep);
+    background: var(--brand-green);
+    box-shadow: 0 0 15px rgba(30, 214, 151, 0.4);
+    border-color: var(--brand-green);
+}
+
+/* Área de Estase (Main Content) */
+main {
+    flex: 1;
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+}
+
+/* Sistema de Camuflagem (Seções ocultas por padrão) */
+.section {
+    display: none;
+    animation: warpIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.section.active {
+    display: block;
+}
+
+@keyframes warpIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+h1,
+h2,
+h3 {
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 3.5rem;
+    background: linear-gradient(90deg, #FFFFFF, var(--brand-green));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+p {
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+/* Componentes de Estilo Comum (Cards / Módulos) */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--plasma-border);
+    border-radius: 16px;
+    padding: 2.5rem;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--brand-green), transparent);
+    opacity: 0.6;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(30, 214, 151, 0.15);
+    border-color: var(--brand-green);
+}
+
+.card h3 {
+    color: white;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+/* --- Estilos Específicos por Seção --- */
+
+/* 1. HERO / PITCH DECK */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 65vh;
+    gap: 4rem;
+}
+
+.hero-content {
+    flex: 1;
+    z-index: 10;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 0.5rem 1.2rem;
+    background: rgba(30, 214, 151, 0.1);
+    border: 1px solid var(--brand-green);
+    color: var(--brand-green);
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 15px rgba(30, 214, 151, 0.2);
+}
+
+/* Orbe de Luz Animado (SVG - Fonte de Energia da Nave) */
+.hero-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.orb-svg {
+    width: 100%;
+    max-width: 450px;
+    animation: floatOrb 6s ease-in-out infinite;
+}
+
+@keyframes floatOrb {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-25px) scale(1.02) rotate(15deg);
+    }
+}
+
+@keyframes pulseGlow {
+
+    0%,
+    100% {
+        opacity: 0.6;
+        r: 160;
+        filter: blur(30px);
+    }
+
+    50% {
+        opacity: 1;
+        r: 175;
+        filter: blur(40px);
+    }
+}
+
+@keyframes spinCore {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Carrossel do Pitch Deck */
+.pitch-container {
+    position: relative;
+    min-height: 250px;
+}
+
+.pitch-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+    transform: translateX(30px);
+}
+
+.pitch-slide.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+    position: relative;
+}
+
+.slide-nav {
+    display: flex;
+    gap: 12px;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.slide-dot {
+    width: 40px;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--plasma-border);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.slide-dot:hover {
+    background: rgba(30, 214, 151, 0.5);
+}
+
+.slide-dot.active {
+    background: var(--brand-green);
+    box-shadow: 0 0 10px var(--brand-green);
+}
+
+/* 2. ARSENAL */
+.wsf-highlight {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, rgba(30, 214, 151, 0.08) 0%, rgba(11, 19, 26, 0.9) 100%);
+    border: 1px solid var(--brand-green);
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding: 4rem;
+    box-shadow: inset 0 0 40px rgba(30, 214, 151, 0.05);
+}
+
+.wsf-highlight h2 {
+    color: var(--brand-green);
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+}
+
+.wsf-highlight h3 {
+    color: white;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.9;
+}
+
+.wsf-icon {
+    flex-shrink: 0;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: rgba(30, 214, 151, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed var(--brand-green);
+    animation: spinCore 30s linear infinite;
+}
+
+/* --- 2.5 TABELA B2B (PRICING) --- */
+.table-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: rgba(11, 19, 26, 0.7);
+    border: 1px solid var(--plasma-border);
+    border-radius: 16px;
+    overflow: hidden;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.b2b-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+.b2b-table th {
+    background: linear-gradient(90deg, rgba(30, 214, 151, 0.15), rgba(0, 229, 255, 0.1));
+    color: #FFFFFF;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 1.5rem;
+    text-align: left;
+    border-bottom: 2px solid var(--brand-green);
+    position: sticky;
+    top: 0;
+}
+
+.b2b-table td {
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid rgba(139, 154, 171, 0.1);
+    transition: background 0.3s;
+}
+
+.b2b-table tbody tr:hover td {
+    background: rgba(30, 214, 151, 0.05);
+}
+
+.b2b-table .category-row td {
+    background: #0B131A;
+    color: var(--brand-green);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    padding: 1rem 1.5rem;
+    border-top: 2px solid rgba(139, 154, 171, 0.15);
+    border-bottom: 1px solid rgba(139, 154, 171, 0.15);
+}
+
+.b2b-table .price {
+    text-align: right;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+    color: #FFFFFF;
+    letter-spacing: 1px;
+}
+
+/* 3. FINANCEIRO */
+.finance-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.finance-card {
+    text-align: center;
+    padding: 5rem 3rem;
+    border: 1px solid var(--brand-green);
+    background: radial-gradient(circle at top, rgba(30, 214, 151, 0.15) 0%, var(--card-bg) 70%);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.finance-card .big-number {
+    font-size: 7rem;
+    font-weight: 800;
+    color: var(--brand-green);
+    text-shadow: 0 0 30px rgba(30, 214, 151, 0.4);
+    margin: 1rem 0;
+    line-height: 1;
+    letter-spacing: -2px;
+}
+
+.flow-diagram {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid var(--plasma-border);
+}
+
+.flow-step {
+    text-align: center;
+    flex: 1;
+}
+
+.flow-step-num {
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(30, 214, 151, 0.2);
+    color: var(--brand-green);
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--brand-green);
+}
+
+.flow-arrow {
+    color: var(--brand-green);
+    font-size: 2rem;
+    opacity: 0.5;
+    flex-shrink: 0;
+    padding: 0 1rem;
+}
+
+/* 4. EQUIPE */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.team-member {
+    text-align: center;
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    border: 1px solid var(--plasma-border);
+    background: linear-gradient(180deg, var(--card-bg) 0%, rgba(11, 19, 26, 0.9) 100%);
+    transition: all 0.3s;
+}
+
+.team-member:hover {
+    border-color: var(--brand-green);
+    transform: translateY(-5px);
+}
+
+.team-avatar {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(135deg, #112233, var(--bg-deep));
+    border: 2px solid var(--brand-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5rem;
+    color: var(--brand-green);
+    font-weight: 800;
+    box-shadow: 0 0 20px rgba(30, 214, 151, 0.2);
+}
+
+.role {
+    color: var(--brand-green);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- 4.5 PLAYBOOK TIMELINE (STITCH PREMIUM) --- */
+.playbook-timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.timeline-path {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: linear-gradient(180deg, transparent, rgba(182, 246, 103, 0.4), rgba(182, 246, 103, 0.8), rgba(182, 246, 103, 0.4), transparent);
+    transform: translateX(-50%);
+    box-shadow: 0 0 15px rgba(182, 246, 103, 0.5);
+    z-index: 1;
+}
+
+.timeline-step {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 50%;
+    padding-right: 3rem;
+    position: relative;
+    margin-bottom: 3rem;
+    z-index: 2;
+}
+
+.timeline-step.right {
+    justify-content: flex-start;
+    padding-right: 0;
+    padding-left: 3rem;
+    margin-left: 50%;
+}
+
+.timeline-marker {
+    position: absolute;
+    right: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #0B131A;
+    border: 3px solid #B6F667;
+    box-shadow: 0 0 20px rgba(182, 246, 103, 0.8);
+    z-index: 3;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.timeline-step.right .timeline-marker {
+    right: auto;
+    left: -8px;
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+    background: rgba(11, 19, 26, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(182, 246, 103, 0.15);
+    border-radius: 20px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    width: 100%;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+}
+
+.glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(182, 246, 103, 0.4);
+    box-shadow: 0 20px 50px rgba(182, 246, 103, 0.15);
+}
+
+.timeline-step:hover .timeline-marker {
+    background: #B6F667;
+    transform: translateY(-50%) scale(1.4);
+    box-shadow: 0 0 35px #B6F667;
+}
+
+.step-number {
+    font-size: 4.5rem;
+    font-weight: 800;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(182, 246, 103, 0.25);
+    position: absolute;
+    top: -15px;
+    right: 20px;
+    opacity: 0.6;
+    transition: all 0.5s ease;
+    z-index: 1;
+}
+
+.timeline-step.right .step-number {
+    right: auto;
+    left: 20px;
+}
+
+.glass-card:hover .step-number {
+    -webkit-text-stroke: 1px rgba(182, 246, 103, 0.6);
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.glass-card h3 {
+    color: #FFFFFF;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+    font-weight: 700;
+}
+
+.glass-card p {
+    color: #A0AEBF;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 0;
+    font-weight: 400;
+}
+
+/* Responsividade Playbook Timeline */
+@media (max-width: 900px) {
+    .timeline-path {
+        left: 20px;
+        transform: none;
+    }
+
+    .timeline-step {
+        width: 100%;
+        margin-left: 0;
+        padding-left: 60px;
+        padding-right: 0;
+        justify-content: flex-start;
+    }
+
+    .timeline-step.right {
+        width: 100%;
+        margin-left: 0;
+        padding-left: 60px;
+        padding-right: 0;
+    }
+
+    .timeline-marker {
+        left: 12px;
+        right: auto;
+    }
+
+    .timeline-step.right .timeline-marker {
+        left: 12px;
+        right: auto;
+    }
+
+    .step-number {
+        right: 20px;
+        left: auto;
+    }
+
+    .timeline-step.right .step-number {
+        right: 20px;
+        left: auto;
+    }
+}
+
+/* 5. NCNDA & ASSINATURA SIGNWELL */
+.ncnda-content {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+}
+
+.shield-icon {
+    margin-bottom: 2rem;
+    filter: drop-shadow(0 0 20px rgba(30, 214, 151, 0.4));
+}
+
+.signwell-container {
+    margin-top: 3rem;
+    width: 100%;
+    height: 600px;
+    /* Altura ideal pra um documento A4 */
+    border: 2px solid var(--brand-green);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    background: #ffffff;
+    /* Fundo branco pra contrastar o documento SignWell */
+    box-shadow: 0 0 30px rgba(30, 214, 151, 0.2);
+    display: none;
+    /* Inicia oculto até o clique no botão */
+}
+
+.signwell-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* 6. FAQ (Accordion Terrestre) */
+.faq-wrapper {
+    max-width: 900px;
+    margin: 3rem auto 0;
+}
+
+.faq-item {
+    border: 1px solid var(--plasma-border);
+    margin-bottom: 1.5rem;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--card-bg);
+    transition: all 0.3s;
+}
+
+.faq-question {
+    padding: 1.8rem 2rem;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s;
+    color: white;
+}
+
+.faq-question:hover {
+    background: rgba(30, 214, 151, 0.05);
+}
+
+.faq-answer {
+    padding: 0 2rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;
+    opacity: 0;
+}
+
+.faq-item.active {
+    border-color: var(--brand-green);
+    box-shadow: 0 5px 20px rgba(30, 214, 151, 0.1);
+}
+
+.faq-item.active .faq-answer {
+    padding: 0 2rem 1.8rem;
+    max-height: 500px;
+    opacity: 1;
+}
+
+.faq-item.active .faq-question {
+    color: var(--brand-green);
+}
+
+.faq-icon {
+    font-size: 1.5rem;
+    transition: transform 0.4s;
+    color: var(--brand-green);
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg);
+}
+
+/* Botões Universais / CTA */
+.btn-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 1.1rem 2.8rem;
+    background: var(--brand-green);
+    color: var(--bg-deep);
+    font-weight: 800;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(30, 214, 151, 0.3);
+    border: 2px solid var(--brand-green);
+    cursor: pointer;
+}
+
+.btn-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(30, 214, 151, 0.5);
+    background: #28FFB5;
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--brand-green);
+    box-shadow: none;
+}
+
+.btn-outline:hover {
+    background: rgba(30, 214, 151, 0.1);
+    color: var(--brand-green);
+}
+
+/* Responsividade Extrema */
+@media (max-width: 1024px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .hero-badge {
+        margin: 0 auto 2rem;
+    }
+
+    .slide-nav {
+        justify-content: center;
+    }
+
+    .pitch-slide {
+        text-align: center;
+    }
+
+    .wsf-highlight {
+        flex-direction: column;
+        text-align: center;
+        padding: 3rem 2rem;
+    }
+
+    .flow-diagram {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .flow-arrow {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    nav {
+        max-width: 100%;
+        padding-bottom: 5px;
+    }
+
+    .logo-img {
+        display: none;
+    }
+
+    .logomark-img {
+        display: block;
+        height: 38px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .finance-card .big-number {
+        font-size: 5rem;
+    }
+
+    main {
+        padding: 2rem 1.5rem;
+    }
+
+    .card {
+        padding: 1.5rem;
+    }
+
+    .signwell-container {
+        height: 450px;
+    }
+}
