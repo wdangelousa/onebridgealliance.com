@@ -130,8 +130,8 @@
 
                 <div class="hero-visual">
                     <!-- Arte Central: Ponte Conectando aos EUA (HUD Geográfico Premium) -->
-                    <svg class="usa-bridge-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg"
-                        style="width: 100%; height: auto; max-width: 500px;">
+                    <svg class="usa-bridge-svg" viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg"
+                        style="width: 100%; height: auto; max-width: 520px;">
                         <defs>
                             <linearGradient id="bridgeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                                 <stop offset="0%" stop-color="#00E5FF" />
@@ -139,108 +139,186 @@
                                 <stop offset="100%" stop-color="#B6F667" />
                             </linearGradient>
                             <radialGradient id="mapGlow" cx="50%" cy="50%" r="50%">
-                                <stop offset="0%" stop-color="rgba(30, 214, 151, 0.15)" />
+                                <stop offset="0%" stop-color="rgba(30, 214, 151, 0.18)" />
                                 <stop offset="100%" stop-color="transparent" />
                             </radialGradient>
                             <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
-                                <feGaussianBlur stdDeviation="10" result="blur" />
+                                <feGaussianBlur stdDeviation="8" result="blur" />
                                 <feComposite in="SourceGraphic" in2="blur" operator="over" />
                             </filter>
-                            <filter id="lightGlow" x="-20%" y="-20%" width="140%" height="140%">
-                                <feGaussianBlur stdDeviation="5" result="blur" />
+                            <filter id="lightGlow" x="-50%" y="-50%" width="200%" height="200%">
+                                <feGaussianBlur stdDeviation="4" result="blur" />
                                 <feComposite in="SourceGraphic" in2="blur" operator="over" />
                             </filter>
                         </defs>
 
                         <!-- Background Rings -->
-                        <g style="transform-origin: center; animation: spinCore 60s linear infinite;" opacity="0.3">
-                            <circle cx="250" cy="250" r="230" fill="none" stroke="var(--brand-green)" stroke-width="1"
+                        <g style="transform-origin: 260px 230px; animation: spinCore 60s linear infinite;"
+                            opacity="0.25">
+                            <circle cx="260" cy="230" r="220" fill="none" stroke="var(--brand-green)" stroke-width="1"
                                 stroke-dasharray="2 10" />
-                            <circle cx="250" cy="250" r="180" fill="none" stroke="#00E5FF" stroke-width="2"
+                            <circle cx="260" cy="230" r="170" fill="none" stroke="#00E5FF" stroke-width="1.5"
                                 stroke-dasharray="40 30" />
                         </g>
 
-                        <!-- USA Map Hologram -->
-                        <g transform="translate(45, 45) scale(1.15)" opacity="0.8">
-                            <!-- Main Map Silhouette Base -->
+                        <!-- ============================================================ -->
+                        <!--  REALISTIC CONTINENTAL USA OUTLINE                          -->
+                        <!--  Scaled to fit roughly x:50–470, y:30–310 in a 520x520 box -->
+                        <!-- ============================================================ -->
+                        <g id="usa-map" opacity="0.9">
+                            <!-- Filled glow base -->
+                            <path d="
+                                M 95,68  L 100,62 L 112,58 L 125,54 L 142,52 L 158,50 L 168,44 L 178,40
+                                L 192,38 L 205,36 L 215,30 L 230,32 L 238,36 L 245,32 L 255,30 L 268,32
+                                L 278,36 L 285,32 L 292,30 L 305,28 L 318,26 L 330,28 L 342,30 L 355,28
+                                L 368,30 L 378,35 L 390,33 L 400,36 L 410,42 L 415,50 L 420,58 L 418,68
+                                L 425,72 L 428,80 L 422,88 L 415,95 L 408,98 L 400,100 L 395,108
+                                L 398,118 L 395,128 L 388,135 L 385,145 L 388,155 L 392,165 L 398,175
+                                L 404,185 L 412,195 L 418,205 L 420,215 L 415,222 L 408,228 L 398,232
+                                L 390,238 L 385,248 L 382,258 L 380,268 L 375,278 L 368,285 L 358,290
+                                L 348,288 L 340,282 L 332,278 L 320,275 L 310,272 L 298,270 L 288,272
+                                L 278,275 L 268,278 L 258,282 L 248,285 L 238,288 L 228,285 L 218,280
+                                L 208,275 L 198,272 L 188,270 L 178,268 L 168,265 L 158,262 L 150,258
+                                L 142,252 L 135,246 L 128,240 L 120,235 L 112,230 L 105,225 L 100,218
+                                L 95,210 L 92,200 L 90,190 L 88,180 L 86,168 L 84,155 L 82,142 L 82,130
+                                L 84,118 L 86,108 L 90,98 L 93,88 L 95,78 Z
+                                " fill="url(#mapGlow)" stroke="var(--brand-green)" stroke-width="1.5"
+                                stroke-linejoin="round" stroke-dasharray="5 3" filter="url(#neonGlow)" />
+                            <!-- Sharp crisp outline on top -->
+                            <path d="
+                                M 95,68  L 100,62 L 112,58 L 125,54 L 142,52 L 158,50 L 168,44 L 178,40
+                                L 192,38 L 205,36 L 215,30 L 230,32 L 238,36 L 245,32 L 255,30 L 268,32
+                                L 278,36 L 285,32 L 292,30 L 305,28 L 318,26 L 330,28 L 342,30 L 355,28
+                                L 368,30 L 378,35 L 390,33 L 400,36 L 410,42 L 415,50 L 420,58 L 418,68
+                                L 425,72 L 428,80 L 422,88 L 415,95 L 408,98 L 400,100 L 395,108
+                                L 398,118 L 395,128 L 388,135 L 385,145 L 388,155 L 392,165 L 398,175
+                                L 404,185 L 412,195 L 418,205 L 420,215 L 415,222 L 408,228 L 398,232
+                                L 390,238 L 385,248 L 382,258 L 380,268 L 375,278 L 368,285 L 358,290
+                                L 348,288 L 340,282 L 332,278 L 320,275 L 310,272 L 298,270 L 288,272
+                                L 278,275 L 268,278 L 258,282 L 248,285 L 238,288 L 228,285 L 218,280
+                                L 208,275 L 198,272 L 188,270 L 178,268 L 168,265 L 158,262 L 150,258
+                                L 142,252 L 135,246 L 128,240 L 120,235 L 112,230 L 105,225 L 100,218
+                                L 95,210 L 92,200 L 90,190 L 88,180 L 86,168 L 84,155 L 82,142 L 82,130
+                                L 84,118 L 86,108 L 90,98 L 93,88 L 95,78 Z
+                                " fill="none" stroke="var(--brand-green)" stroke-width="1" stroke-linejoin="round"
+                                opacity="0.9" />
+
+                            <!-- Florida peninsula -->
                             <path
-                                d="M 40,30 L 60,32 L 80,45 L 100,35 L 140,38 L 180,40 L 185,25 L 200,35 L 210,55 L 230,45 L 240,70 L 250,90 L 260,70 L 260,55 L 280,50 L 310,30 L 340,5 L 360,20 L 350,45 L 365,55 L 350,65 L 330,90 L 320,120 L 310,140 L 340,210 L 315,230 L 290,170 L 270,165 L 250,175 L 240,190 L 220,190 L 205,240 L 180,200 L 150,210 L 130,210 L 90,200 L 70,215 L 60,190 L 30,120 L 25,80 Z"
+                                d="M 358,290 L 362,300 L 365,312 L 362,324 L 355,332 L 348,330 L 344,320 L 346,308 L 348,298 L 348,288"
                                 fill="url(#mapGlow)" stroke="var(--brand-green)" stroke-width="1.5"
-                                stroke-linejoin="round" stroke-dasharray="4 2" filter="url(#neonGlow)" />
-
-                            <!-- Sharp Vector Outline -->
+                                stroke-linejoin="round" stroke-dasharray="5 3" />
                             <path
-                                d="M 40,30 L 60,32 L 80,45 L 100,35 L 140,38 L 180,40 L 185,25 L 200,35 L 210,55 L 230,45 L 240,70 L 250,90 L 260,70 L 260,55 L 280,50 L 310,30 L 340,5 L 360,20 L 350,45 L 365,55 L 350,65 L 330,90 L 320,120 L 310,140 L 340,210 L 315,230 L 290,170 L 270,165 L 250,175 L 240,190 L 220,190 L 205,240 L 180,200 L 150,210 L 130,210 L 90,200 L 70,215 L 60,190 L 30,120 L 25,80 Z"
-                                fill="none" stroke="var(--brand-green)" stroke-width="1" stroke-linejoin="round"
-                                opacity="0.8" />
+                                d="M 358,290 L 362,300 L 365,312 L 362,324 L 355,332 L 348,330 L 344,320 L 346,308 L 348,298 L 348,288"
+                                fill="none" stroke="var(--brand-green)" stroke-width="1" opacity="0.9" />
 
-                            <!-- Interior Tech Lines (Grid/Nodes) -->
-                            <polyline points="40,30 90,100 150,100 180,200" fill="none" stroke="rgba(0, 229, 255, 0.4)"
-                                stroke-width="1" stroke-dasharray="3 3" />
-                            <polyline points="100,35 150,100 230,45" fill="none" stroke="rgba(0, 229, 255, 0.4)"
-                                stroke-width="1" stroke-dasharray="3 3" />
-                            <polyline points="310,30 250,90 270,165" fill="none" stroke="rgba(0, 229, 255, 0.4)"
-                                stroke-width="1" stroke-dasharray="3 3" />
-                            <polyline points="250,90 320,190" fill="none" stroke="rgba(0, 229, 255, 0.4)"
-                                stroke-width="1" stroke-dasharray="3 3" />
-                            <polyline points="150,100 250,90" fill="none" stroke="rgba(0, 229, 255, 0.4)"
-                                stroke-width="1" stroke-dasharray="3 3" />
-
-                            <!-- Active Strategic HUD Nodes -->
-                            <!-- NY -->
-                            <circle cx="320" cy="70" r="3" fill="#00E5FF" filter="url(#lightGlow)" />
-                            <!-- LA -->
-                            <circle cx="60" cy="180" r="3" fill="#00E5FF" filter="url(#lightGlow)" />
-                            <!-- TX -->
-                            <circle cx="190" cy="210" r="3" fill="#00E5FF" filter="url(#lightGlow)" />
-                            <!-- IL (Chicago) -->
-                            <circle cx="230" cy="85" r="3" fill="#00E5FF" filter="url(#lightGlow)" />
-
-                            <!-- TARGET: ORLANDO FL HO -->
-                            <!-- Orlando is roughly at 320, 190 in this map scale -->
-                            <circle cx="320" cy="190" r="6" fill="var(--brand-green)" filter="url(#lightGlow)" />
-                            <circle cx="320" cy="190" r="14" fill="none" stroke="#B6F667" stroke-width="2"
-                                style="animation: pulseGlow 1.5s infinite alternate;" />
-                            <circle cx="320" cy="190" r="22" fill="none" stroke="var(--brand-green)" stroke-width="1"
-                                stroke-dasharray="2 4" style="animation: spinCore 10s linear infinite reverse;" />
-
-                            <text x="345" y="195" fill="#FFFFFF" font-family="Montserrat, sans-serif" font-size="10"
-                                font-weight="700" letter-spacing="1">ORLANDO HQ</text>
+                            <!-- Interior tech grid lines -->
+                            <line x1="170" y1="80" x2="310" y2="80" stroke="rgba(0,229,255,0.25)" stroke-width="1"
+                                stroke-dasharray="3 4" />
+                            <line x1="130" y1="140" x2="410" y2="140" stroke="rgba(0,229,255,0.2)" stroke-width="1"
+                                stroke-dasharray="3 4" />
+                            <line x1="100" y1="200" x2="400" y2="200" stroke="rgba(0,229,255,0.15)" stroke-width="1"
+                                stroke-dasharray="3 4" />
+                            <line x1="180" y1="60" x2="180" y2="280" stroke="rgba(0,229,255,0.15)" stroke-width="1"
+                                stroke-dasharray="3 4" />
+                            <line x1="280" y1="40" x2="280" y2="285" stroke="rgba(0,229,255,0.15)" stroke-width="1"
+                                stroke-dasharray="3 4" />
+                            <line x1="370" y1="45" x2="370" y2="270" stroke="rgba(0,229,255,0.15)" stroke-width="1"
+                                stroke-dasharray="3 4" />
                         </g>
 
-                        <!-- The Bridge Connection from Global (Bottom Left) to Orlando -->
-                        <!-- With transform scale(1.15) translate(45,45), Orlando is roughly at X: 413, Y: 263 -->
-                        <g>
-                            <!-- Global Entry Node -->
-                            <circle cx="90" cy="380" r="5" fill="#00E5FF" filter="url(#lightGlow)" />
-                            <circle cx="90" cy="380" r="12" fill="none" stroke="#00E5FF" stroke-width="1.5"
+                        <!-- ============================================================ -->
+                        <!--  STRATEGIC CITY NODES                                       -->
+                        <!--  Coords approximate within the map above:                   -->
+                        <!--  Orlando FL  ≈ (358, 295) — inside Florida peninsula        -->
+                        <!--  Texas       ≈ (215, 250) — south-central                  -->
+                        <!--  Wyoming     ≈ (215, 115) — north-central                  -->
+                        <!--  Delaware    ≈ (400, 105) — mid-Atlantic coast              -->
+                        <!-- ============================================================ -->
+
+                        <!-- ORLANDO HQ node (main target) -->
+                        <circle cx="356" cy="295" r="7" fill="var(--brand-green)" filter="url(#lightGlow)" />
+                        <circle cx="356" cy="295" r="15" fill="none" stroke="#B6F667" stroke-width="1.8"
+                            style="animation: pulseGlow 1.5s infinite alternate;" />
+                        <circle cx="356" cy="295" r="23" fill="none" stroke="var(--brand-green)" stroke-width="1"
+                            stroke-dasharray="2 4" style="animation: spinCore 10s linear infinite reverse;" />
+                        <text x="375" y="300" fill="#B6F667" font-family="Montserrat, sans-serif" font-size="9"
+                            font-weight="700" letter-spacing="1">ORLANDO HQ</text>
+
+                        <!-- TEXAS node -->
+                        <circle cx="215" cy="248" r="5" fill="#00E5FF" filter="url(#lightGlow)" />
+                        <circle cx="215" cy="248" r="11" fill="none" stroke="#00E5FF" stroke-width="1"
+                            stroke-dasharray="2 3" style="animation: pulseGlow 2s infinite alternate;" />
+                        <text x="222" y="260" fill="#00E5FF" font-family="Montserrat, sans-serif" font-size="8"
+                            font-weight="600" letter-spacing="1">TEXAS</text>
+
+                        <!-- WYOMING node -->
+                        <circle cx="210" cy="112" r="5" fill="#00E5FF" filter="url(#lightGlow)" />
+                        <circle cx="210" cy="112" r="11" fill="none" stroke="#00E5FF" stroke-width="1"
+                            stroke-dasharray="2 3" style="animation: pulseGlow 2.5s infinite alternate;" />
+                        <text x="218" y="108" fill="#00E5FF" font-family="Montserrat, sans-serif" font-size="8"
+                            font-weight="600" letter-spacing="1">WYOMING</text>
+
+                        <!-- DELAWARE node -->
+                        <circle cx="398" cy="108" r="5" fill="#00E5FF" filter="url(#lightGlow)" />
+                        <circle cx="398" cy="108" r="11" fill="none" stroke="#00E5FF" stroke-width="1"
+                            stroke-dasharray="2 3" style="animation: pulseGlow 1.8s infinite alternate;" />
+                        <text x="406" y="105" fill="#00E5FF" font-family="Montserrat, sans-serif" font-size="8"
+                            font-weight="600" letter-spacing="1">DELAWARE</text>
+
+                        <!-- ============================================================ -->
+                        <!--  PARCEIRO GLOBAL + BRIDGE CONNECTIONS                       -->
+                        <!-- ============================================================ -->
+                        <g id="connections">
+                            <!-- PARCEIRO GLOBAL entry node (bottom-left, outside map) -->
+                            <circle cx="80" cy="420" r="6" fill="#00E5FF" filter="url(#lightGlow)" />
+                            <circle cx="80" cy="420" r="14" fill="none" stroke="#00E5FF" stroke-width="1.5"
                                 stroke-dasharray="2 4" style="animation: spinCore 8s linear infinite;" />
-                            <text x="50" y="415" fill="#00E5FF" font-family="Montserrat, sans-serif" font-size="11"
-                                font-weight="600" letter-spacing="1">PARCEIRO GLOBAL</text>
+                            <text x="28" y="452" fill="#00E5FF" font-family="Montserrat, sans-serif" font-size="10"
+                                font-weight="700" letter-spacing="1.2">PARCEIRO GLOBAL</text>
 
-                            <!-- Central Main Bridge Arch -->
-                            <!-- Start: 100, 375 | Control: 200, 250 | End: 413, 263 -->
-                            <path d="M 100,375 Q 230,230 405,263" fill="none" stroke="url(#bridgeGrad)" stroke-width="5"
+                            <!-- === BRIDGE LINE 1: to ORLANDO (main arch, thicker + solid glow) === -->
+                            <path d="M 84,416 Q 220,300 352,293" fill="none" stroke="url(#bridgeGrad)" stroke-width="5"
                                 stroke-linecap="round" filter="url(#neonGlow)" />
-                            <path d="M 100,375 Q 230,230 405,263" fill="none" stroke="#FFFFFF" stroke-width="1.5"
-                                stroke-linecap="round" />
+                            <path d="M 84,416 Q 220,300 352,293" fill="none" stroke="#FFFFFF" stroke-width="1.5"
+                                stroke-linecap="round" opacity="0.7" />
 
-                            <!-- Holographic Structural Support Lines -->
-                            <path d="M 120,400 L 150,380 L 413,275" fill="none" stroke="rgba(30, 214, 151, 0.4)"
-                                stroke-width="1" stroke-dasharray="4 4" />
-                            <path d="M 70,360 L 160,310 L 400,250" fill="none" stroke="rgba(0, 229, 255, 0.3)"
-                                stroke-width="1" stroke-dasharray="2 6" />
+                            <!-- === BRIDGE LINE 2: to TEXAS === -->
+                            <path d="M 84,416 Q 150,360 213,250" fill="none" stroke="#00E5FF" stroke-width="2.5"
+                                stroke-linecap="round" stroke-dasharray="6 3" filter="url(#neonGlow)" opacity="0.85" />
 
-                            <!-- Animated Data Particles Streaming Across the Bridge -->
+                            <!-- === BRIDGE LINE 3: to WYOMING === -->
+                            <path d="M 84,416 Q 120,280 208,115" fill="none" stroke="#1ED697" stroke-width="2.5"
+                                stroke-linecap="round" stroke-dasharray="6 3" filter="url(#neonGlow)" opacity="0.85" />
+
+                            <!-- === BRIDGE LINE 4: to DELAWARE === -->
+                            <path d="M 84,416 Q 240,260 395,112" fill="none" stroke="#B6F667" stroke-width="2.5"
+                                stroke-linecap="round" stroke-dasharray="6 3" filter="url(#neonGlow)" opacity="0.85" />
+
+                            <!-- Animated data particles on Orlando line -->
                             <circle r="4" fill="#FFFFFF" filter="url(#lightGlow)">
-                                <animateMotion dur="2.5s" repeatCount="indefinite" path="M 100,375 Q 230,230 405,263" />
+                                <animateMotion dur="2.5s" repeatCount="indefinite" path="M 84,416 Q 220,300 352,293" />
                             </circle>
                             <circle r="3" fill="#B6F667" filter="url(#lightGlow)">
-                                <animateMotion dur="2s" repeatCount="indefinite" path="M 100,375 Q 230,230 405,263"
+                                <animateMotion dur="2s" repeatCount="indefinite" path="M 84,416 Q 220,300 352,293"
                                     begin="1s" />
                             </circle>
-                            <circle r="5" fill="#00E5FF" filter="url(#lightGlow)">
-                                <animateMotion dur="3s" repeatCount="indefinite" path="M 100,375 Q 230,230 405,263"
+
+                            <!-- Animated data particle on Texas line -->
+                            <circle r="3" fill="#00E5FF" filter="url(#lightGlow)">
+                                <animateMotion dur="3s" repeatCount="indefinite" path="M 84,416 Q 150,360 213,250"
+                                    begin="0.5s" />
+                            </circle>
+
+                            <!-- Animated data particle on Wyoming line -->
+                            <circle r="3" fill="#1ED697" filter="url(#lightGlow)">
+                                <animateMotion dur="3.5s" repeatCount="indefinite" path="M 84,416 Q 120,280 208,115"
+                                    begin="0.2s" />
+                            </circle>
+
+                            <!-- Animated data particle on Delaware line -->
+                            <circle r="3" fill="#B6F667" filter="url(#lightGlow)">
+                                <animateMotion dur="3.2s" repeatCount="indefinite" path="M 84,416 Q 240,260 395,112"
                                     begin="0.8s" />
                             </circle>
                         </g>
