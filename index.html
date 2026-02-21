@@ -7,6 +7,8 @@
     <title>Onebridge Stalwart - Portal de Parceiros</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        crossorigin="anonymous" />
 
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -18,13 +20,17 @@
             <img src="logo.png" alt="Onebridge Stalwart Logo" class="logo-img">
             <img src="logomark.png" alt="Onebridge Mark" class="logomark-img">
         </div>
+        <!-- Hamburger toggle (mobile only) -->
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
         <nav id="spaceship-nav">
             <button class="tab-btn active" data-target="pitch-deck">Pitch Deck</button>
             <button class="tab-btn" data-target="arsenal">Arsenal</button>
-            <button class="tab-btn" data-target="financeiro">Comercial &amp; B2B</button>
-            <button class="tab-btn" data-target="diretrizes">Diretrizes da Parceria</button>
+            <button class="tab-btn" data-target="financeiro">B2B</button>
+            <button class="tab-btn" data-target="diretrizes">Diretrizes</button>
             <button class="tab-btn" data-target="equipe">Equipe</button>
-            <button class="tab-btn" data-target="ncnda">NCNDA / Assinar</button>
+            <button class="tab-btn" data-target="ncnda">Contrato</button>
             <button class="tab-btn" data-target="faq">FAQ</button>
             <button class="tab-btn" data-target="proximos">Missão</button>
         </nav>
@@ -874,32 +880,29 @@
 
             <div class="team-grid">
                 <div class="team-member">
-                    <div class="team-avatar">S</div>
+                    <div class="team-avatar"><i class="fa-solid fa-handshake"></i></div>
                     <h3>Samuel Marçal</h3>
-                    <div class="role">Head de Relacionamento</div>
+                    <div class="role">Relacionamento</div>
                     <p style="margin-bottom: 1rem;">Arquitetura master para proteção contra riscos de sucessão
-                        patrimonial e fluidez nas rotas do
-                        fisco.</p>
+                        patrimonial e fluidez nas rotas do fisco.</p>
                     <a href="mailto:samuel@onebridgestalwart.com"
                         style="color: var(--brand-green); text-decoration: none; font-size: 0.95rem;">samuel@onebridgestalwart.com</a>
                 </div>
                 <div class="team-member">
-                    <div class="team-avatar">W</div>
+                    <div class="team-avatar"><i class="fa-solid fa-gears"></i></div>
                     <h3>Walter D'Angelo</h3>
-                    <div class="role">Head Operacional</div>
+                    <div class="role">Operacional</div>
                     <p style="margin-bottom: 1rem;">Coordena propulsores burocráticos e conexões institucionais evitando
-                        rejeições de agências
-                        governamentais.</p>
+                        rejeições de agências governamentais.</p>
                     <a href="mailto:walter@onebridgestalwart.com"
                         style="color: var(--brand-green); text-decoration: none; font-size: 0.95rem;">walter@onebridgestalwart.com</a>
                 </div>
                 <div class="team-member">
-                    <div class="team-avatar">L</div>
-                    <h3>Letícia Cruz</h3>
-                    <div class="role">Head</div>
+                    <div class="team-avatar"><i class="fa-solid fa-chess-knight"></i></div>
+                    <h3>Professor Evandro</h3>
+                    <div class="role">Estrategista de Desenvolvimento de Negócios nos EUA</div>
                     <p style="margin-bottom: 1rem;">Traduz jurídica e fisco internacional em operações intuitivas. O elo
-                        sem ruído direto do front ao
-                        back-office.</p>
+                        sem ruído direto do front ao back-office.</p>
                     <a href="mailto:pay@onebridgestalwart.com"
                         style="color: var(--brand-green); text-decoration: none; font-size: 0.95rem;">pay@onebridgestalwart.com</a>
                 </div>
@@ -1292,6 +1295,13 @@
         </section>
 
     </main>
+
+    <!-- ── WhatsApp Floating Button ── -->
+    <a class="whatsapp-fab" href="https://wa.me/14078219738" target="_blank" rel="noopener"
+        aria-label="Fale com um Consultor">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">Fale com um Consultor</span>
+    </a>
 
     <script src="js/main.js"></script>
 
