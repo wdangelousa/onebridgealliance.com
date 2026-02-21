@@ -49,59 +49,181 @@ header {
 .logo {
     display: flex;
     align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
-.logo-img,
-.logomark-img {
+.logo:hover {
+    transform: scale(1.02);
+}
+
+.logo-mark {
     height: 48px;
-    /* Altura ideal projetada para o menu Mestre */
     width: auto;
     object-fit: contain;
     /* Filtro Matemático que transforma a imagem na exata cor Verde Plasma (#1ED697) */
     filter: brightness(0) saturate(100%) invert(69%) sepia(85%) saturate(306%) hue-rotate(114deg) brightness(97%) contrast(93%);
-    transition: filter 0.3s ease, transform 0.3s ease;
+    transition: filter 0.3s ease;
 }
 
-.logomark-img {
-    display: none;
-    /* Inicia Oculto no Desktop */
-}
-
-.logo-img:hover,
-.logomark-img:hover {
-    transform: scale(1.02);
+.logo:hover .logo-mark {
     filter: brightness(0) saturate(100%) invert(75%) sepia(90%) saturate(400%) hue-rotate(114deg) brightness(110%) contrast(105%);
-    cursor: pointer;
+}
+
+.logo-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    transition: text-shadow 0.3s ease;
+}
+
+.logo:hover .logo-text {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 /* Menu de Navegação - Painel de Controle (Abas) */
 nav {
     display: flex;
-    gap: 8px;
+    gap: 5px;
     overflow-x: auto;
-    max-width: 75%;
+    max-width: 80%;
     scrollbar-width: none;
-    /* Firefox */
+    align-items: center;
 }
 
 nav::-webkit-scrollbar {
     display: none;
-    /* Chrome/Safari */
 }
 
 .tab-btn {
     background: transparent;
     color: var(--text-muted);
     border: 1px solid transparent;
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.78rem;
     font-weight: 600;
     cursor: pointer;
     border-radius: 20px;
     transition: all 0.3s ease;
     white-space: nowrap;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.4px;
+    flex-shrink: 0;
+}
+
+/* ── Hamburger Button (hidden on desktop) ── */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 38px;
+    height: 38px;
+    background: transparent;
+    border: 1px solid var(--plasma-border);
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 6px;
+    transition: border-color 0.3s;
+    flex-shrink: 0;
+}
+
+.hamburger:hover {
+    border-color: var(--brand-green);
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--brand-green);
+    border-radius: 2px;
+    transition: transform 0.35s ease, opacity 0.25s ease;
+    transform-origin: center;
+}
+
+/* Animated X when open */
+.hamburger.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── WhatsApp Floating Action Button ── */
+.whatsapp-fab {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #25D366;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45), 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: waPulse 2.4s ease-in-out infinite;
+}
+
+.whatsapp-fab:hover {
+    transform: scale(1.12);
+    box-shadow: 0 6px 28px rgba(37, 211, 102, 0.65), 0 3px 12px rgba(0, 0, 0, 0.35);
+    animation: none;
+}
+
+@keyframes waPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45), 0 0 0 0 rgba(37, 211, 102, 0.45);
+    }
+
+    50% {
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.25), 0 0 0 12px rgba(37, 211, 102, 0);
+    }
+}
+
+/* Tooltip */
+.whatsapp-tooltip {
+    position: absolute;
+    right: calc(100% + 12px);
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(11, 19, 26, 0.92);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    white-space: nowrap;
+    padding: 0.4rem 0.85rem;
+    border-radius: 8px;
+    border: 1px solid var(--plasma-border);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    backdrop-filter: blur(8px);
+}
+
+.whatsapp-fab:hover .whatsapp-tooltip {
+    opacity: 1;
 }
 
 .tab-btn:hover {
@@ -1225,13 +1347,16 @@ p {
         gap: 0.6rem;
     }
 
-    .logo-img {
-        display: none;
+    .logo {
+        gap: 0;
     }
 
-    .logomark-img {
-        display: block;
+    .logo-mark {
         height: 36px;
+    }
+
+    .logo-text {
+        display: none;
     }
 
     nav {
