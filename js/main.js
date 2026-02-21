@@ -174,3 +174,37 @@ setInterval(() => {
         changeSlide(currentSlideIndex + 1);
     }
 }, 6500);
+
+/* --- MÓDULO FAQ: Formulário de Pergunta Específica (24h) --- */
+window.submitFaqForm = async function (e) {
+    e.preventDefault();
+    const form    = document.getElementById('faqContactForm');
+    const btn     = document.getElementById('faqSubmitBtn');
+    const success = document.getElementById('faqSuccess');
+
+    btn.disabled    = true;
+    btn.textContent = 'Enviando…';
+
+    const nome      = document.getElementById('faqName').value.trim();
+    const email     = document.getElementById('faqEmail').value.trim();
+    const categoria = document.getElementById('faqCategory').value;
+    const mensagem  = document.getElementById('faqMessage').value.trim();
+
+    try {
+        const FORMSPREE_URL = 'https://formspree.io/f/xpwrlkoa';
+        const res = await fetch(FORMSPREE_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({ nome, email, categoria, mensagem, _subject: `[FAQ Onebridge] ${categoria} — ${nome}` })
+        });
+        if (!res.ok) throw new Error('fetch failed');
+    } catch (_) {
+        const subject = encodeURIComponent(`[FAQ Onebridge] ${categoria} - ${nome}`);
+        const body    = encodeURIComponent(`Nome/Firma: ${nome}\nE-mail: ${email}\nCategoria: ${categoria}\n\nPergunta:\n${mensagem}`);
+        window.open(`mailto:contact@onebridgestalwart.com?subject=${subject}&body=${body}`);
+    }
+
+    form.style.display    = 'none';
+    success.style.display = 'block';
+    success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+};
