@@ -71,9 +71,15 @@ header {
     filter: brightness(0) saturate(100%) invert(75%) sepia(90%) saturate(400%) hue-rotate(114deg) brightness(110%) contrast(105%);
 }
 
-.logo-text {
+.logo-text-container {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.logo-primary {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.55rem;
+    font-size: 1.6rem;
     font-weight: 800;
     color: #FFFFFF;
     text-transform: uppercase;
@@ -82,7 +88,20 @@ header {
     transition: text-shadow 0.3s ease;
 }
 
-.logo:hover .logo-text {
+.logo-secondary {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    white-space: nowrap;
+    transition: text-shadow 0.3s ease;
+    margin-top: -2px;
+}
+
+.logo:hover .logo-primary,
+.logo:hover .logo-secondary {
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
@@ -1355,7 +1374,7 @@ p {
         height: 36px;
     }
 
-    .logo-text {
+    .logo-text-container {
         display: none;
     }
 
