@@ -5,26 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Onebridge Stalwart - Portal de Parceiros</title>
-    <!-- Fonte Terrestre Aprimorada -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap"
         rel="stylesheet">
 
-    <!-- Linkando a Estrutura Profissional de CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <!-- Cabeçalho / Ponte de Comando -->
     <header>
         <div class="logo">
-            <!-- Imagem da Logo Mestre (Ecrãs Grandes) -->
             <img src="logo.png" alt="Onebridge Stalwart Logo" class="logo-img">
-            <!-- Imagem Logomark (Resoluções Menores ou Menu Mobile) -->
             <img src="logomark.png" alt="Onebridge Mark" class="logomark-img">
         </div>
         <nav id="spaceship-nav">
-            <!-- Programando coordenadas GPS das abas de navegação -->
             <button class="tab-btn active" data-target="pitch-deck">Pitch Deck</button>
             <button class="tab-btn" data-target="arsenal">Arsenal</button>
             <button class="tab-btn" data-target="tabela-b2b">Tabela B2B</button>
@@ -37,24 +31,20 @@
         </nav>
     </header>
 
-    <!-- Compartimento de Carga Principal (Single Page Application) -->
     <main>
 
-        <!-- 1. PITCH DECK -->
         <section id="pitch-deck" class="section active">
             <div class="hero">
                 <div class="hero-content">
                     <span class="hero-badge">Acesso Classificado Alpha</span>
 
                     <div class="pitch-container">
-                        <!-- Slide 1 -->
                         <div class="pitch-slide active">
                             <h1>Nós fazemos o pesado.<br>A glória é toda sua.</h1>
                             <p>Bem-vindo à Onebridge Stalwart. Nós somos a sua estrutura vital e silenciosa ('White
                                 Label') nos EUA. Operamos nos bastidores garantindo precisão cirúrgica, enquanto sua
                                 firma leva todo o crédito e lucro.</p>
                         </div>
-                        <!-- (Outros Slides) -->
                         <div class="pitch-slide">
                             <h1>A Força Invisível</h1>
                             <p>Parceiros jurídicos e contábeis usam nossa infraestrutura impenetrável em Orlando para
@@ -106,7 +96,6 @@
                     </div>
 
                     <div class="slide-nav">
-                        <!-- 10 dots do Pitch Deck -->
                         <div class="slide-dot active" onclick="changeSlide(0)"></div>
                         <div class="slide-dot" onclick="changeSlide(1)"></div>
                         <div class="slide-dot" onclick="changeSlide(2)"></div>
@@ -173,7 +162,6 @@
                             }
                         </style>
 
-                        <!-- ═══ SATURN RINGS BACK ═══ -->
                         <g clip-path="url(#rB)" opacity="0.52">
                             <ellipse cx="375" cy="218" rx="365" ry="68" fill="none" stroke="#1ED697" stroke-width="2.8"
                                 filter="url(#ringGlow)" style="animation:spinCore 30s linear infinite" />
@@ -183,7 +171,6 @@
                                 stroke-dasharray="4 14" style="animation:spinCore 38s linear infinite" />
                         </g>
 
-                        <!-- ═══ REAL USA STATES (50 states from GeoJSON) ═══ -->
                         <g id="usa-states" filter="url(#mapGlow)">
                             <path class="st"
                                 d="M 474.0,244.1 L 494.6,244.3 L 496.7,257.9 L 499.6,277.9 L 501.0,282.3 L 502.3,284.8 L 501.7,286.4 L 503.1,287.3 L 501.1,289.3 L 501.2,291.3 L 500.1,294.0 L 501.3,298.8 L 500.5,302.9 L 501.7,307.3 L 495.9,307.3 L 471.1,307.3 L 470.7,309.4 L 473.4,312.4 L 472.9,315.0 L 473.8,316.3 L 472.1,318.7 L 470.5,319.2 L 467.5,316.6 L 467.2,312.7 L 466.3,312.3 L 465.2,315.2 L 464.8,318.1 L 461.8,317.3 L 460.9,293.1 L 463.6,263.1 L 465.2,245.8 L 464.0,244.2 L 474.0,244.1 Z" />
@@ -287,7 +274,6 @@
                                 d="M 720.6,512.9 L 716.8,512.6 L 715.0,513.8 L 714.3,513.1 L 711.6,513.4 L 712.3,509.7 L 710.9,507.0 L 713.0,504.6 L 714.6,505.0 L 721.1,505.0 L 727.8,505.9 L 730.2,506.9 L 730.3,509.5 L 729.1,509.7 L 727.8,512.4 L 723.1,513.8 L 720.6,512.9 Z" />
                         </g>
 
-                        <!-- ═══ 13 STARS — NW canton ═══ -->
                         <g fill="white" opacity=".92">
                             <polygon
                                 points="72,32 73.5,37 78.8,37 74.7,39.9 76.2,44.8 72,41.8 67.8,44.8 69.3,39.9 65.2,37 70.5,37" />
@@ -317,7 +303,6 @@
                                 points="92,112 93.5,117 98.8,117 94.7,119.9 96.2,124.8 92,121.8 87.8,124.8 89.3,119.9 85.2,117 90.5,117" />
                         </g>
 
-                        <!-- ═══ SATURN RINGS FRONT ═══ -->
                         <g clip-path="url(#rF)" opacity="0.52">
                             <ellipse cx="375" cy="218" rx="365" ry="68" fill="none" stroke="#1ED697" stroke-width="2.8"
                                 filter="url(#ringGlow)" style="animation:spinCore 30s linear infinite" />
@@ -325,7 +310,6 @@
                                 stroke-dasharray="8 10" style="animation:spinCore 23s linear infinite reverse" />
                             <ellipse cx="375" cy="218" rx="272" ry="46" fill="none" stroke="#B6F667" stroke-width="1"
                                 stroke-dasharray="4 14" style="animation:spinCore 38s linear infinite" />
-                            <!-- Orbiting satellites on rings -->
                             <circle r="3" fill="#1ED697" filter="url(#nodeGlow)" opacity="0.9">
                                 <animateMotion dur="18s" repeatCount="indefinite" begin="0s"
                                     path="M 740,215 A 365,68 0 0,1 10,215 A 365,68 0 0,1 740,215" />
@@ -356,133 +340,100 @@
                             </circle>
                         </g>
 
-                        <!-- ═══ BRIDGE CONNECTIONS (bidirectional pulses) ═══ -->
-
-                        <!-- ARC → ORLANDO -->
-                        <!-- Glow base -->
                         <path d="M 55,465 C 200,385 380,360 544.3,346.8" fill="none" stroke="url(#arcGrad)"
                             stroke-width="11.5" stroke-linecap="round" opacity="0.18" filter="url(#arcGlow)" />
-                        <!-- Main arc -->
                         <path d="M 55,465 C 200,385 380,360 544.3,346.8" fill="none" stroke="url(#arcGrad)"
                             stroke-width="5.5" stroke-linecap="round" stroke-dasharray="12 6" filter="url(#arcGlow)"
                             opacity="0.85">
                             <animate attributeName="stroke-dashoffset" from="0" to="-54" dur="1.8s"
                                 repeatCount="indefinite" />
                         </path>
-                        <!-- Arc white core -->
                         <path d="M 55,465 C 200,385 380,360 544.3,346.8" fill="none" stroke="#fff" stroke-width="1"
                             stroke-linecap="round" opacity="0.4" />
-                        <!-- Pulse FORWARD -->
                         <circle r="5" fill="#F0C040" filter="url(#nodeGlow)">
                             <animateMotion dur="2.4s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1"
                                 calcMode="spline" keySplines="0.4 0 0.6 1"
                                 path="M 55,465 C 200,385 380,360 544.3,346.8" />
                         </circle>
-                        <!-- Pulse BACKWARD -->
                         <circle r="4" fill="#fff" filter="url(#nodeGlow)" opacity="0.7">
                             <animateMotion dur="2.4s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1"
                                 calcMode="spline" keySplines="0.4 0 0.6 1" begin="1.2s"
                                 path="M 55,465 C 200,385 380,360 544.3,346.8" />
                         </circle>
-                        <!-- Secondary pulse forward (staggered) -->
                         <circle r="3" fill="#F0C040" filter="url(#nodeGlow)" opacity="0.6">
                             <animateMotion dur="2.4s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1"
                                 begin="1.2s" path="M 55,465 C 200,385 380,360 544.3,346.8" />
                         </circle>
-                        <!-- ARC → TEXAS -->
-                        <!-- Glow base -->
                         <path d="M 55,465 C 170,432 283,396 379.1,326.3" fill="none" stroke="#00E5FF" stroke-width="8.5"
                             stroke-linecap="round" opacity="0.18" filter="url(#arcGlow)" />
-                        <!-- Main arc -->
                         <path d="M 55,465 C 170,432 283,396 379.1,326.3" fill="none" stroke="#00E5FF" stroke-width="2.5"
                             stroke-linecap="round" stroke-dasharray="12 6" filter="url(#arcGlow)" opacity="0.85">
                             <animate attributeName="stroke-dashoffset" from="0" to="-54" dur="1.8s"
                                 repeatCount="indefinite" />
                         </path>
-                        <!-- Arc white core -->
                         <path d="M 55,465 C 170,432 283,396 379.1,326.3" fill="none" stroke="#fff" stroke-width="1"
                             stroke-linecap="round" opacity="0.4" />
-                        <!-- Pulse FORWARD -->
                         <circle r="5" fill="#00E5FF" filter="url(#nodeGlow)">
                             <animateMotion dur="2.8s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1"
                                 calcMode="spline" keySplines="0.4 0 0.6 1"
                                 path="M 55,465 C 170,432 283,396 379.1,326.3" />
                         </circle>
-                        <!-- Pulse BACKWARD -->
                         <circle r="4" fill="#fff" filter="url(#nodeGlow)" opacity="0.7">
                             <animateMotion dur="2.8s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1"
                                 calcMode="spline" keySplines="0.4 0 0.6 1" begin="1.4s"
                                 path="M 55,465 C 170,432 283,396 379.1,326.3" />
                         </circle>
-                        <!-- Secondary pulse forward (staggered) -->
                         <circle r="3" fill="#00E5FF" filter="url(#nodeGlow)" opacity="0.6">
                             <animateMotion dur="2.8s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1"
                                 begin="1.4s" path="M 55,465 C 170,432 283,396 379.1,326.3" />
                         </circle>
-                        <!-- ARC → WYOMING -->
-                        <!-- Glow base -->
                         <path d="M 55,465 C 112,384 185,295 268.3,147.7" fill="none" stroke="#1ED697" stroke-width="8.5"
                             stroke-linecap="round" opacity="0.18" filter="url(#arcGlow)" />
-                        <!-- Main arc -->
                         <path d="M 55,465 C 112,384 185,295 268.3,147.7" fill="none" stroke="#1ED697" stroke-width="2.5"
                             stroke-linecap="round" stroke-dasharray="12 6" filter="url(#arcGlow)" opacity="0.85">
                             <animate attributeName="stroke-dashoffset" from="0" to="-54" dur="1.8s"
                                 repeatCount="indefinite" />
                         </path>
-                        <!-- Arc white core -->
                         <path d="M 55,465 C 112,384 185,295 268.3,147.7" fill="none" stroke="#fff" stroke-width="1"
                             stroke-linecap="round" opacity="0.4" />
-                        <!-- Pulse FORWARD -->
                         <circle r="5" fill="#1ED697" filter="url(#nodeGlow)">
                             <animateMotion dur="3.2s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1"
                                 calcMode="spline" keySplines="0.4 0 0.6 1"
                                 path="M 55,465 C 112,384 185,295 268.3,147.7" />
                         </circle>
-                        <!-- Pulse BACKWARD -->
                         <circle r="4" fill="#fff" filter="url(#nodeGlow)" opacity="0.7">
                             <animateMotion dur="3.2s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1"
                                 calcMode="spline" keySplines="0.4 0 0.6 1" begin="1.6s"
                                 path="M 55,465 C 112,384 185,295 268.3,147.7" />
                         </circle>
-                        <!-- Secondary pulse forward (staggered) -->
                         <circle r="3" fill="#1ED697" filter="url(#nodeGlow)" opacity="0.6">
                             <animateMotion dur="3.2s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1"
                                 begin="1.6s" path="M 55,465 C 112,384 185,295 268.3,147.7" />
                         </circle>
-                        <!-- ARC → DELAWARE -->
-                        <!-- Glow base -->
                         <path d="M 55,465 C 244,384 435,278 613.8,169.8" fill="none" stroke="#F0C040" stroke-width="8.5"
                             stroke-linecap="round" opacity="0.18" filter="url(#arcGlow)" />
-                        <!-- Main arc -->
                         <path d="M 55,465 C 244,384 435,278 613.8,169.8" fill="none" stroke="#F0C040" stroke-width="2.5"
                             stroke-linecap="round" stroke-dasharray="12 6" filter="url(#arcGlow)" opacity="0.85">
                             <animate attributeName="stroke-dashoffset" from="0" to="-54" dur="1.8s"
                                 repeatCount="indefinite" />
                         </path>
-                        <!-- Arc white core -->
                         <path d="M 55,465 C 244,384 435,278 613.8,169.8" fill="none" stroke="#fff" stroke-width="1"
                             stroke-linecap="round" opacity="0.4" />
-                        <!-- Pulse FORWARD -->
                         <circle r="5" fill="#F0C040" filter="url(#nodeGlow)">
                             <animateMotion dur="2.6s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1"
                                 calcMode="spline" keySplines="0.4 0 0.6 1"
                                 path="M 55,465 C 244,384 435,278 613.8,169.8" />
                         </circle>
-                        <!-- Pulse BACKWARD -->
                         <circle r="4" fill="#fff" filter="url(#nodeGlow)" opacity="0.7">
                             <animateMotion dur="2.6s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1"
                                 calcMode="spline" keySplines="0.4 0 0.6 1" begin="1.3s"
                                 path="M 55,465 C 244,384 435,278 613.8,169.8" />
                         </circle>
-                        <!-- Secondary pulse forward (staggered) -->
                         <circle r="3" fill="#F0C040" filter="url(#nodeGlow)" opacity="0.6">
                             <animateMotion dur="2.6s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1"
                                 begin="1.3s" path="M 55,465 C 244,384 435,278 613.8,169.8" />
                         </circle>
 
-                        <!-- ═══ CITY NODES ═══ -->
-
-                        <!-- ORLANDO -->
                         <circle cx="544.3" cy="346.8" r="8" fill="#F0C040" filter="url(#nodeGlow)" />
                         <circle cx="544.3" cy="346.8" r="18" fill="none" stroke="#F0C040" stroke-width="1.6"
                             style="animation:pulseGlow 1.5s infinite alternate" />
@@ -490,7 +441,6 @@
                             stroke-dasharray="3 5" style="animation:spinCore 10s linear infinite reverse" />
                         <text x="564.3" y="351.8" fill="#F0C040" font-family="Montserrat,sans-serif" font-size="9.5"
                             font-weight="700" letter-spacing="1.2">ORLANDO HQ</text>
-                        <!-- TEXAS -->
                         <circle cx="379.1" cy="326.3" r="8" fill="#00E5FF" filter="url(#nodeGlow)" />
                         <circle cx="379.1" cy="326.3" r="14" fill="none" stroke="#00E5FF" stroke-width="1.6"
                             style="animation:pulseGlow 2.2s infinite alternate" />
@@ -498,7 +448,6 @@
                             stroke-dasharray="3 5" style="animation:spinCore 10s linear infinite reverse" />
                         <text x="397.1" y="342.3" fill="#00E5FF" font-family="Montserrat,sans-serif" font-size="9.5"
                             font-weight="700" letter-spacing="1.2">TEXAS</text>
-                        <!-- WYOMING -->
                         <circle cx="268.3" cy="147.7" r="8" fill="#00E5FF" filter="url(#nodeGlow)" />
                         <circle cx="268.3" cy="147.7" r="14" fill="none" stroke="#00E5FF" stroke-width="1.6"
                             style="animation:pulseGlow 2.7s infinite alternate" />
@@ -506,7 +455,6 @@
                             stroke-dasharray="3 5" style="animation:spinCore 10s linear infinite reverse" />
                         <text x="286.3" y="144.7" fill="#00E5FF" font-family="Montserrat,sans-serif" font-size="9.5"
                             font-weight="700" letter-spacing="1.2">WYOMING</text>
-                        <!-- DELAWARE -->
                         <circle cx="613.8" cy="169.8" r="8" fill="#00E5FF" filter="url(#nodeGlow)" />
                         <circle cx="613.8" cy="169.8" r="14" fill="none" stroke="#00E5FF" stroke-width="1.6"
                             style="animation:pulseGlow 1.9s infinite alternate" />
@@ -515,7 +463,6 @@
                         <text x="631.8" y="166.8" fill="#00E5FF" font-family="Montserrat,sans-serif" font-size="9.5"
                             font-weight="700" letter-spacing="1.2">DELAWARE</text>
 
-                        <!-- ═══ PARCEIRO GLOBAL ORIGIN ═══ -->
                         <circle cx="55" cy="465" r="9" fill="#00E5FF" filter="url(#nodeGlow)" />
                         <circle cx="55" cy="465" r="20" fill="none" stroke="#00E5FF" stroke-width="1.8"
                             stroke-dasharray="3 5" style="animation:spinCore 5s linear infinite" />
@@ -528,7 +475,6 @@
                 </div>
         </section>
 
-        <!-- 2. ARSENAL -->
         <section id="arsenal" class="section">
             <span class="hero-badge">Tecnologia Disponível Superior</span>
             <h2>Arsenal de Serviços</h2>
@@ -538,7 +484,6 @@
                 style="margin-top: 3rem; color: var(--brand-green); border-bottom: 1px solid var(--plasma-border); padding-bottom: 1rem;">
                 Estruturação Corporativa & Offshores</h3>
             <div class="grid">
-                <!-- Destaque WSF -->
                 <div class="card wsf-highlight" style="margin-top: 0;">
                     <div class="wsf-icon">
                         <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="var(--brand-green)"
@@ -640,7 +585,6 @@
             </div>
         </section>
 
-        <!-- 3. TABELA B2B -->
         <section id="tabela-b2b" class="section">
             <div style="text-align: center; margin-bottom: 3rem;">
                 <span class="hero-badge"
@@ -818,7 +762,6 @@
             </div>
         </section>
 
-        <!-- 3. FINANCEIRO -->
         <section id="financeiro" class="section">
             <span class="hero-badge">Sistema Monetário Vantajoso</span>
             <div style="text-align: center;">
@@ -860,7 +803,6 @@
             </div>
         </section>
 
-        <!-- 4. PLAYBOOK -->
         <section id="diretrizes" class="section">
             <div style="text-align: center; margin-bottom: 4rem;">
                 <span class="hero-badge"
@@ -876,7 +818,6 @@
             <div class="diretrizes-timeline">
                 <div class="timeline-path"></div>
 
-                <!-- Step 1 -->
                 <div class="timeline-step">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content glass-card">
@@ -888,7 +829,6 @@
                     </div>
                 </div>
 
-                <!-- Step 2 -->
                 <div class="timeline-step right">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content glass-card">
@@ -900,7 +840,6 @@
                     </div>
                 </div>
 
-                <!-- Step 3 -->
                 <div class="timeline-step">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content glass-card">
@@ -912,7 +851,6 @@
                     </div>
                 </div>
 
-                <!-- Step 4 -->
                 <div class="timeline-step right">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content glass-card">
@@ -926,7 +864,6 @@
             </div>
         </section>
 
-        <!-- 5. EQUIPE -->
         <section id="equipe" class="section">
             <span class="hero-badge">A Ponte de Comando Principal</span>
             <div style="text-align: center;">
@@ -970,7 +907,6 @@
             </div>
         </section>
 
-        <!-- 6. NCNDA & INTEGRAÇÃO SIGNWELL -->
         <section id="ncnda" class="section">
             <span class="hero-badge">O Pacto Irrevogável da Galáxia</span>
             <div class="card ncnda-content">
@@ -1050,27 +986,73 @@
                                 required>
                         </div>
 
+                        <div style="margin-top: 30px; margin-bottom: 25px; font-family: 'Montserrat', sans-serif;">
+                            <p style="color: #ffffff; font-size: 14px; margin-bottom: 12px; font-weight: 600;">
+                                Leia os Termos do Acordo (NCNDA):
+                            </p>
+
+                            <div style="background: rgba(255, 255, 255, 0.03); 
+                                        border: 1px solid rgba(255, 255, 255, 0.1); 
+                                        border-radius: 12px; 
+                                        padding: 25px; 
+                                        height: 280px; 
+                                        overflow-y: auto; 
+                                        color: #e5e7eb; 
+                                        font-size: 13px; 
+                                        line-height: 1.7; 
+                                        text-align: justify;
+                                        scrollbar-width: thin;
+                                        scrollbar-color: #1ED697 #0B131A;">
+
+                                <h3
+                                    style="color: #1ED697; text-align: center; font-size: 15px; margin-top: 0; text-transform: uppercase; letter-spacing: 1px;">
+                                    Non-Circumvention & Non-Disclosure Agreement
+                                </h3>
+
+                                <p><strong>1. Objeto:</strong> Este acordo estabelece as diretrizes de proteção
+                                    recíproca para a aliança estratégica B2B onde a Onebridge Stalwart LLC atuará como
+                                    back-office técnico para o Parceiro.</p>
+
+                                <p><strong>2. Não-Circunvenção:</strong> A Onebridge reconhece a titularidade exclusiva
+                                    do Parceiro sobre sua carteira de clientes. Comprometemo-nos irrevogavelmente a não
+                                    realizar abordagens diretas ou aliciamento de clientes apresentados durante a
+                                    vigência desta parceria e por 18 meses subsequentes.</p>
+
+                                <p><strong>3. Confidencialidade:</strong> Ambas as partes manterão sigilo absoluto sobre
+                                    estratégias, tabelas de preços de atacado e dados operacionais compartilhados.</p>
+
+                                <p><strong>4. Foro:</strong> Este acordo é regido pelas leis do Estado da Flórida, EUA,
+                                    com jurisdição em Orange County.</p>
+
+                                <p
+                                    style="text-align: center; color: #9ca3af; font-style: italic; margin-top: 25px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
+                                    O documento completo será gerado via SignWell e enviado para assinatura eletrônica
+                                    imediata.
+                                </p>
+                            </div>
+
+                            <div style="margin-top: 20px; display: flex; align-items: flex-start; gap: 12px;">
+                                <input type="checkbox" id="concordo_ncnda" required
+                                    style="width: 20px; height: 20px; accent-color: #1ED697; cursor: pointer; margin-top: 2px;">
+                                <label for="concordo_ncnda"
+                                    style="color: #d1d5db; font-size: 13px; line-height: 1.4; cursor: pointer;">
+                                    Eu li e concordo com os termos de <strong>Confidencialidade e Não
+                                        Circunvenção</strong> da Onebridge Stalwart LLC.
+                                </label>
+                            </div>
+                        </div>
                         <button class="btn-cta" id="create-signwell-btn"
-                            style="width: 100%; display: flex; justify-content: center; font-size: 1rem;">
+                            style="width: 100%; display: flex; justify-content: center; font-size: 1rem; cursor: pointer;">
                             <span id="btn-text">Estou de ACORDO. Gerar NCNDA ✍️</span>
-                            <span id="btn-loader" style="display: none;">Forjando Autenticação...</span>
+                            <span id="btn-loader" style="display: none;">Enviando Dados... ⏳</span>
                         </button>
                     </div>
 
                     <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 15px;">Integração segura via API
                         do SignWell.</p>
-
-                    <!-- Iframe do Embed SignWell -->
-                    <div class="signwell-container" id="signwell-container" style="margin-top: 2rem; display: none;">
-                        <!-- Nota: Trocar o src="about:blank" pelo URL do seu documento SignWell no formato signwell.com/document/... -->
-                        <iframe class="signwell-iframe" src="https://www.signwell.com/preview_embed_example/"
-                            title="Signwell Document Embed" allowfullscreen>
-                        </iframe>
-                    </div>
                 </div>
         </section>
 
-        <!-- 7. FAQ -->
         <section id="faq" class="section">
             <span class="hero-badge">Decodificador Lógico</span>
             <h2>Perguntas Frequentes (FAQ)</h2>
@@ -1078,7 +1060,6 @@
 
             <div class="faq-wrapper">
 
-                <!-- Q1 -->
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>O cliente final saberá do envolvimento da Onebridge Stalwart?</span>
@@ -1091,7 +1072,6 @@
                     </div>
                 </div>
 
-                <!-- Q2 -->
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>A estrutura Wyoming Statutory Foundation (WSF) serve para qualquer perfil?</span>
@@ -1104,7 +1084,6 @@
                     </div>
                 </div>
 
-                <!-- Q3 -->
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>Qual é o prazo médio de entrega dos serviços?</span>
@@ -1117,7 +1096,6 @@
                     </div>
                 </div>
 
-                <!-- Q4 -->
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>Como funciona o modelo de precificação para o parceiro?</span>
@@ -1130,7 +1108,6 @@
                     </div>
                 </div>
 
-                <!-- Q5 -->
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>Preciso ter empresa aberta nos EUA para ser parceiro?</span>
@@ -1144,7 +1121,6 @@
                     </div>
                 </div>
 
-                <!-- Q6 -->
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>A Onebridge oferece suporte durante o processo para o parceiro?</span>
@@ -1157,7 +1133,6 @@
                     </div>
                 </div>
 
-                <!-- Q7 -->
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>Posso revender serviços sem ter expertise jurídica ou contábil?</span>
@@ -1171,7 +1146,6 @@
                     </div>
                 </div>
 
-                <!-- Q8 -->
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>Qual é a proteção contra conflito de interesse com meus clientes?</span>
@@ -1184,7 +1158,6 @@
                     </div>
                 </div>
 
-                <!-- Q9 -->
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>Os serviços estão em conformidade com a legislação brasileira e americana?</span>
@@ -1198,7 +1171,6 @@
                     </div>
                 </div>
 
-                <!-- Q10 -->
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>Como começo a aliança? Qual é o primeiro passo concreto?</span>
@@ -1213,11 +1185,7 @@
                     </div>
                 </div>
 
-            </div><!-- /faq-wrapper -->
-
-            <!-- ══════════════════════════════════════════════════════
-                 FORMULÁRIO DE PERGUNTA ESPECÍFICA
-                 ══════════════════════════════════════════════════════ -->
+            </div>
             <div class="faq-form-section">
                 <div class="faq-form-header">
                     <span class="faq-form-badge">⚡ Resposta em até 24h</span>
@@ -1268,18 +1236,15 @@
                     </div>
                 </form>
 
-                <!-- Success message (hidden by default) -->
                 <div class="faq-success" id="faqSuccess" style="display:none;">
                     <div class="faq-success-icon">✓</div>
                     <h3>Pergunta recebida!</h3>
                     <p>Nossa equipe em Orlando analisará sua dúvida e responderá no e-mail informado em <strong
                             style="color:var(--brand-green)">até 24 horas úteis</strong>.</p>
                 </div>
-            </div><!-- /faq-form-section -->
-
+            </div>
         </section>
 
-        <!-- 8. PRÓXIMOS PASSOS -->
         <section id="proximos" class="section">
             <span class="hero-badge">Teletransporte Iniciado</span>
             <div style="text-align: center;">
@@ -1329,8 +1294,80 @@
 
     </main>
 
-    <!-- Importando Lógica Modular da Nave (JS) -->
     <script src="js/main.js"></script>
+
+    <script>
+        document.getElementById('create-signwell-btn').addEventListener('click', async (e) => {
+            e.preventDefault();
+
+            // 1. Validações de Segurança
+            const checkbox = document.getElementById('concordo_ncnda');
+            if (checkbox && !checkbox.checked) {
+                alert("Por favor, leia e aceite os termos do Acordo (NCNDA) antes de prosseguir.");
+                return;
+            }
+
+            const name = document.getElementById('partner-name').value;
+            const email = document.getElementById('partner-email').value;
+            const country = document.getElementById('partner-country').value;
+
+            if (!name || !email || !country) {
+                alert("Por favor, preencha todos os campos obrigatórios (*).");
+                return;
+            }
+
+            // 2. Transição de Interface
+            const btn = document.getElementById('create-signwell-btn');
+            const btnText = document.getElementById('btn-text');
+            const btnLoader = document.getElementById('btn-loader');
+
+            btn.disabled = true;
+            if (btnText) btnText.style.display = 'none';
+            if (btnLoader) btnLoader.style.display = 'inline-block';
+
+            // 3. Empacotamento de Dados para a API
+            const payload = {
+                template_id: "0c8a51da-9887-4cd2-96ec-3842788d4953",
+                partner_name: name,
+                company_name: document.getElementById('partner-company').value,
+                email: email,
+                gov_id: document.getElementById('partner-taxid').value,
+                address: document.getElementById('partner-address').value
+            };
+
+            // 4. Conexão e Disparo para o Make.com
+            try {
+                const response = await fetch("https://hook.us2.make.com/wpwban74lvy8vym5l8osgvwgbwpf", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok || response.status === 200 || response.type === 'opaque') {
+                    alert("Sucesso absoluto! Os dados foram enviados com sucesso.");
+
+                    // Limpar formulário
+                    document.getElementById('partner-name').value = '';
+                    document.getElementById('partner-company').value = '';
+                    document.getElementById('partner-email').value = '';
+                    document.getElementById('partner-taxid').value = '';
+                    document.getElementById('partner-address').value = '';
+                    document.getElementById('partner-country').value = '';
+                    if (checkbox) checkbox.checked = false;
+                } else {
+                    throw new Error("Erro na comunicação com a API.");
+                }
+            } catch (err) {
+                console.error(err);
+                alert("Ocorreu um erro no envio. Verifique sua conexão e tente novamente.");
+            } finally {
+                // Restaura o botão
+                btn.disabled = false;
+                if (btnText) btnText.style.display = 'inline-block';
+                if (btnLoader) btnLoader.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 
 </html>
