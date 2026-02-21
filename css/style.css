@@ -570,7 +570,7 @@ p {
 }
 
 /* --- 4.5 PLAYBOOK TIMELINE (STITCH PREMIUM) --- */
-.playbook-timeline {
+.diretrizes-timeline {
     position: relative;
     max-width: 1000px;
     margin: 0 auto;
@@ -708,7 +708,7 @@ p {
     font-weight: 400;
 }
 
-/* Responsividade Playbook Timeline */
+/* Responsividade Diretrizes da Parceria Timeline */
 @media (max-width: 900px) {
     .timeline-path {
         left: 20px;
@@ -1418,7 +1418,7 @@ p {
         border-radius: 12px;
     }
 
-    /* Glass card (Playbook) */
+    /* Glass card (Diretrizes da Parceria) */
     .glass-card {
         padding: 1.5rem 1.2rem;
     }
