@@ -198,36 +198,47 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         async function handleAiResponse(userText) {
-            // Contexto Estratégico: Onebridge Stalwart Concierge
-            // Regra: Nunca mencionar que é um protótipo ou tem limitações.
+            /** 
+             * SYSTEM PROMPT — CONCIERGE ESTRATÉGICO v2.0
+             * Framework: Identidade Institucional + Retaguarda White Label
+             */
 
-            // Simulação de processamento inteligente
+            // Simulação de Processo de Raciocínio (Chain-of-Thought)
             setTimeout(() => {
                 let response = "";
                 const input = userText.toLowerCase();
 
-                if (input.includes("parceria") || input.includes("advogado") || input.includes("escritório")) {
-                    response = "Com certeza. Escritórios de advocacia societária e contabilidades internacionais são os pilares da nossa rede de alianças. Como nosso sócio fundador possui background jurídico, a Onebridge Stalwart foi desenhada para atuar como a extensão operacional das estratégias que você cria para seus clientes em solo americano. Operamos de forma invisível (White Label) para que você mantenha o protagonismo. Gostaria de agendar um briefing tático com nossos diretores para alinhar nossa retaguarda à sua estrutura?";
-                } else if (input.includes("orlando") || input.includes("flórida") || input.includes("usa")) {
-                    response = "Nossa base de operações em Orlando (Horizon West) está estrategicamente posicionada para gerenciar a retaguarda de Family Offices e Holdings Operacionais. Garantimos que a presença internacional de seus clientes seja executada com precisão cirúrgica. Deseja conhecer mais sobre nosso setup físico e operacional na Flórida?";
-                } else {
-                    response = "Entendo perfeitamente sua demanda. Na Onebridge Stalwart, focamos em soluções de alta gravidade para proteção patrimonial e expansão imigratória. Para que eu possa fornecer uma análise técnica mais precisa, gostaria de agendar um briefing tático com nossos diretores operacionais?";
+                // 1. Identificação de Perfil: Advogado / Escritório Societário
+                if (input.includes("advogado") || input.includes("societário") || input.includes("escritório") || input.includes("oab")) {
+                    response = "Absolutamente. Escritórios societários são o núcleo da nossa rede de alianças estratégicas. Nosso sócio fundador, Walter D'Angelo, é advogado licenciado (OAB/PE 23.359), o que nos permite operar com a mesma precisão técnica e deontologia que você aplica no seu trabalho. <br><br>O modelo é simples: você projeta a arquitetura jurídica, nós executamos e mantemos a estrutura operacional em solo americano — de forma invisível ou co-branded. Seus honorários e sua relação com o cliente permanecem integralmente seus. <br><br>Qual é o perfil da sua carteira hoje — famílias com ativos nos EUA, empresas em expansão, ou ambos? Isso nos ajuda a alinhar nosso primeiro briefing tático.";
+                }
+                // 2. Identificação de Perfil: Contador / FBAR / Compliance
+                else if (input.includes("contador") || input.includes("contabilidade") || input.includes("fbar") || input.includes("fatca") || input.includes("imposto")) {
+                    response = "Questões de compliance e reporting, como o FBAR e o FATCA, exigem atenção imediata e discrição total. Operamos como a retaguarda americana que organiza os ativos e entidades para que você, como contador do cliente, possa entregar um serviço de conformidade impecável. <br><br>Nós cuidamos da manutenção das entidades (Annual Reports, Registered Agent) e da coordenação com profissionais americanos licenciados. Se seu cliente possui exposição americana não declarada, o segredo é o timing para a regularização voluntária. <br><br>Gostaria de agendar um briefing confidencial para mapearmos esses casos e entender como podemos fortalecer sua entrega?";
+                }
+                // 3. Identificação de Perfil: Consultor Patrimonial / Family Office
+                else if (input.includes("consultor") || input.includes("patrimonial") || input.includes("investimento") || input.includes("family office")) {
+                    response = "Para famílias que buscam sucessão segura e eficiência multigeracional, a Onebridge Stalwart atua como o 'escritório de família' em Orlando. Focamos em governança, segregação patrimonial e blindagem via Holdings Operacionais ou Trusts. <br><br>Nossa base em Horizon West é o hub para essa diversificação geográfica. Trabalhamos na montagem e gestão de bunkers financeiros robustos (como a Wyoming Statutory Foundation). <br><br>Vale uma conversa mais aprofundada para entender o perfil da sua carteira e como nossa Vanguarda Operacional pode servir de alicerce para suas estratégias?";
+                }
+                // 4. Identificação de Perfil: Cliente Final / Abertura de Empresa
+                else if (input.includes("abrir") || input.includes("empresa") || input.includes("casa") || input.includes("visto") || input.includes("orlando")) {
+                    response = "A abertura de uma entidade nos EUA é apenas o passo inicial; o segredo está no propósito estratégico. Seja uma LLC para holding imobiliária ou uma Corporation para operação ativa, a estrutura correta evita retrabalhos e impostos desnecessários. <br><br>Localizada em Orlando (Horizon West), nossa equipe oferece acolhimento e segurança para que você não se sinta sozinho nos EUA. Cuidamos desde a estruturação inicial até o banking e o compliance contínuo. <br><br>O que você tem em mente para essa expansão — é um veículo de investimento, um negócio operacional, ou parte de um planejamento familiar?";
+                }
+                // 5. Resposta Geral Estratégica
+                else {
+                    response = "Na Onebridge Stalwart, atuamos como a interface de inteligência para operações de alta gravidade nos EUA. Seja para estruturação de Family Offices ou Holdings Operacionais, nossa vanguarda em Orlando está pronta para ser sua extensão operacional. <br><br>Para que possamos alinhar uma análise estratégica preliminar ao seu cenário, recomendo um **Briefing Tático** direto com nossos diretores operacionais. Como posso direcionar nossa conversa agora?";
                 }
 
                 renderMessage(response, 'bot');
             }, 1000);
 
-            // Futuro: Integração com Webhook de LLM (Make.com / OpenAI)
-            /*
-            try {
-                const res = await fetch('https://hook.us2.make.com/sua_url_aqui', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ message: userText, persona: "Senior Concierge" })
-                });
-                const data = await res.json();
-                renderMessage(data.response, 'bot');
-            } catch(e) { ... }
+            // Interface pronta para integração futura com LLM (Make.com Custom Webhook)
+            /* 
+            fetch('https://hook.us2.make.com/...', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: userText, persona: "Senior_Concierge_v2" })
+            });
             */
         }
     }
