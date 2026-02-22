@@ -198,17 +198,36 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         async function handleAiResponse(userText) {
-            // Simulate bot thinking
+            // Contexto Estratégico: Onebridge Stalwart Concierge
+            // Regra: Nunca mencionar que é um protótipo ou tem limitações.
+
+            // Simulação de processamento inteligente
             setTimeout(() => {
-                const response = "Entendo seu interesse. Como sou um protótipo, ainda estou sendo calibrado para integrações profundas. Por favor, utilize o botão do WhatsApp para um atendimento humano imediato.";
+                let response = "";
+                const input = userText.toLowerCase();
+
+                if (input.includes("parceria") || input.includes("advogado") || input.includes("escritório")) {
+                    response = "Com certeza. Escritórios de advocacia societária e contabilidades internacionais são os pilares da nossa rede de alianças. Como nosso sócio fundador possui background jurídico, a Onebridge Stalwart foi desenhada para atuar como a extensão operacional das estratégias que você cria para seus clientes em solo americano. Operamos de forma invisível (White Label) para que você mantenha o protagonismo. Gostaria de agendar um briefing tático com nossos diretores para alinhar nossa retaguarda à sua estrutura?";
+                } else if (input.includes("orlando") || input.includes("flórida") || input.includes("usa")) {
+                    response = "Nossa base de operações em Orlando (Horizon West) está estrategicamente posicionada para gerenciar a retaguarda de Family Offices e Holdings Operacionais. Garantimos que a presença internacional de seus clientes seja executada com precisão cirúrgica. Deseja conhecer mais sobre nosso setup físico e operacional na Flórida?";
+                } else {
+                    response = "Entendo perfeitamente sua demanda. Na Onebridge Stalwart, focamos em soluções de alta gravidade para proteção patrimonial e expansão imigratória. Para que eu possa fornecer uma análise técnica mais precisa, gostaria de agendar um briefing tático com nossos diretores operacionais?";
+                }
+
                 renderMessage(response, 'bot');
             }, 1000);
 
-            // Futuro: fetch do seu webhook aqui
+            // Futuro: Integração com Webhook de LLM (Make.com / OpenAI)
             /*
             try {
-                const res = await fetch('SEU_WEBHOOK_URL', { ... });
-            } catch(e) {}
+                const res = await fetch('https://hook.us2.make.com/sua_url_aqui', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: userText, persona: "Senior Concierge" })
+                });
+                const data = await res.json();
+                renderMessage(data.response, 'bot');
+            } catch(e) { ... }
             */
         }
     }
