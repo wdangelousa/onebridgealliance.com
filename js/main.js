@@ -149,7 +149,69 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* Log de Inicialização do Console */
-    console.log("%c[Stitch 626] Motores Modulares operacionais! Arquivos CSS/JS isolados e Integração SignWell Pronta.", "color: #1ED697; font-size: 14px; font-weight: bold; background: #0B131A; padding: 10px; border: 1px solid #1ED697;");
+    console.log("%c[Stitch 626] Motores Modulares operacionais!", "color: #1ED697; font-size: 14px; font-weight: bold; background: #0B131A; padding: 10px; border: 1px solid #1ED697;");
+
+    /* --- MÓDULO AI CONCIERGE: Interface e Lógica --- */
+    const aiFab = document.getElementById('aiChatFab');
+    const aiChatbox = document.getElementById('aiChatbox');
+    const aiCloseBtn = document.getElementById('aiCloseBtn');
+    const aiInput = document.getElementById('aiInput');
+    const aiSendBtn = document.getElementById('aiSendBtn');
+    const aiMessages = document.getElementById('aiChatMessages');
+
+    if (aiFab && aiChatbox) {
+        // Toggle Chatbox
+        aiFab.addEventListener('click', () => {
+            const isVisible = aiChatbox.style.display === 'flex';
+            aiChatbox.style.display = isVisible ? 'none' : 'flex';
+            if (!isVisible) aiInput.focus();
+        });
+
+        aiCloseBtn.addEventListener('click', () => {
+            aiChatbox.style.display = 'none';
+        });
+
+        // Enviar Mensagem
+        const sendMessage = () => {
+            const text = aiInput.value.trim();
+            if (!text) return;
+
+            // Renderizar Mensagem do Usuário
+            renderMessage(text, 'user');
+            aiInput.value = '';
+
+            // Stub para Integração Futura (Webhook)
+            handleAiResponse(text);
+        };
+
+        aiSendBtn.addEventListener('click', sendMessage);
+        aiInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+
+        function renderMessage(text, side) {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `ai-message ${side}`;
+            msgDiv.innerHTML = `<p>${text}</p>`;
+            aiMessages.appendChild(msgDiv);
+            aiMessages.scrollTop = aiMessages.scrollHeight;
+        }
+
+        async function handleAiResponse(userText) {
+            // Simulate bot thinking
+            setTimeout(() => {
+                const response = "Entendo seu interesse. Como sou um protótipo, ainda estou sendo calibrado para integrações profundas. Por favor, utilize o botão do WhatsApp para um atendimento humano imediato.";
+                renderMessage(response, 'bot');
+            }, 1000);
+
+            // Futuro: fetch do seu webhook aqui
+            /*
+            try {
+                const res = await fetch('SEU_WEBHOOK_URL', { ... });
+            } catch(e) {}
+            */
+        }
+    }
 });
 
 /* --- MÓDULO 3: Projeção Holográfica (Pitch Deck Carousel) --- */
@@ -178,17 +240,17 @@ setInterval(() => {
 /* --- MÓDULO FAQ: Formulário de Pergunta Específica (24h) --- */
 window.submitFaqForm = async function (e) {
     e.preventDefault();
-    const form    = document.getElementById('faqContactForm');
-    const btn     = document.getElementById('faqSubmitBtn');
+    const form = document.getElementById('faqContactForm');
+    const btn = document.getElementById('faqSubmitBtn');
     const success = document.getElementById('faqSuccess');
 
-    btn.disabled    = true;
+    btn.disabled = true;
     btn.textContent = 'Enviando…';
 
-    const nome      = document.getElementById('faqName').value.trim();
-    const email     = document.getElementById('faqEmail').value.trim();
+    const nome = document.getElementById('faqName').value.trim();
+    const email = document.getElementById('faqEmail').value.trim();
     const categoria = document.getElementById('faqCategory').value;
-    const mensagem  = document.getElementById('faqMessage').value.trim();
+    const mensagem = document.getElementById('faqMessage').value.trim();
 
     try {
         const FORMSPREE_URL = 'https://formspree.io/f/xpwrlkoa';
@@ -200,11 +262,11 @@ window.submitFaqForm = async function (e) {
         if (!res.ok) throw new Error('fetch failed');
     } catch (_) {
         const subject = encodeURIComponent(`[FAQ Onebridge] ${categoria} - ${nome}`);
-        const body    = encodeURIComponent(`Nome/Firma: ${nome}\nE-mail: ${email}\nCategoria: ${categoria}\n\nPergunta:\n${mensagem}`);
+        const body = encodeURIComponent(`Nome/Firma: ${nome}\nE-mail: ${email}\nCategoria: ${categoria}\n\nPergunta:\n${mensagem}`);
         window.open(`mailto:contact@onebridgestalwart.com?subject=${subject}&body=${body}`);
     }
 
-    form.style.display    = 'none';
+    form.style.display = 'none';
     success.style.display = 'block';
     success.scrollIntoView({ behavior: 'smooth', block: 'center' });
 };
