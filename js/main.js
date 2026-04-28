@@ -5,35 +5,37 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    /* --- MÓDULO 1: Roteamento Dimensional (Abas/Tabs) --- */
+    /* --- MÓDULO 1: Section Routing (single source of truth) ---
+     * switchSection toggles .active on tabs and sections regardless of
+     * whether the target has a matching tab-btn. Sections like #proximos
+     * (reachable only via the Briefing CTA / scroll cue) work too. */
     const tabs = document.querySelectorAll('.tab-btn');
     const sections = document.querySelectorAll('.section');
 
+    window.switchSection = function (targetId) {
+        if (!targetId) return;
+        tabs.forEach(t => t.classList.remove('active'));
+        sections.forEach(s => s.classList.remove('active'));
+
+        const matchingTab = document.querySelector(`.tab-btn[data-target="${targetId}"]`);
+        if (matchingTab) matchingTab.classList.add('active');
+
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+            targetSection.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    };
+
     tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            tabs.forEach(t => t.classList.remove('active'));
-            sections.forEach(s => s.classList.remove('active'));
-
-            tab.classList.add('active');
-            const targetId = tab.getAttribute('data-target');
-            const targetSection = document.getElementById(targetId);
-
-            if (targetSection) {
-                targetSection.classList.add('active');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-        });
+        tab.addEventListener('click', () => switchSection(tab.getAttribute('data-target')));
     });
 
-    /* Anchors outside the tab strip (briefing CTA, hero scroll cue) —
-     * delegate to the corresponding tab so existing routing logic
-     * stays the single source of truth. */
+    /* Anchors outside the tab strip (briefing CTA, hero scroll cue, hero
+     * inline CTAs) — all funnel through switchSection so adding/removing
+     * tabs never breaks navigation. */
     document.querySelectorAll('.nav-cta[data-target], .hero-scroll-cue[data-target]').forEach(anchor => {
-        anchor.addEventListener('click', () => {
-            const targetId = anchor.getAttribute('data-target');
-            const targetTab = document.querySelector(`.tab-btn[data-target="${targetId}"]`);
-            if (targetTab) targetTab.click();
-        });
+        anchor.addEventListener('click', () => switchSection(anchor.getAttribute('data-target')));
     });
 
     /* Navbar: increase blur & contrast when user scrolls past the hero */
