@@ -36,33 +36,43 @@ body {
 
 /* Navbar estilo Ponte de Comando */
 header {
-    background: rgba(7, 17, 29, 0.92);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(244, 236, 222, 0.12);
-    padding: 1.1rem 2.4rem;
+    background: linear-gradient(180deg, rgba(7, 17, 29, 0.62) 0%, rgba(7, 17, 29, 0.42) 100%);
+    backdrop-filter: blur(22px) saturate(140%);
+    -webkit-backdrop-filter: blur(22px) saturate(140%);
+    border-bottom: 1px solid rgba(244, 236, 222, 0.06);
+    box-shadow: 0 1px 0 rgba(184, 150, 90, 0.04), 0 12px 28px -18px rgba(0, 0, 0, 0.55);
+    padding: 0.85rem 2.6rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 2rem;
     position: sticky;
     top: 0;
     z-index: 1000;
+    transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+header.is-scrolled {
+    background: linear-gradient(180deg, rgba(7, 17, 29, 0.86) 0%, rgba(7, 17, 29, 0.74) 100%);
+    border-bottom-color: rgba(244, 236, 222, 0.10);
+    box-shadow: 0 1px 0 rgba(184, 150, 90, 0.08), 0 18px 36px -22px rgba(0, 0, 0, 0.7);
 }
 
 .logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    transition: opacity 0.3s ease;
 }
 
 .logo:hover {
-    transform: scale(1.02);
+    opacity: 0.92;
 }
 
 .logo-mark {
-    height: 48px;
+    height: 42px;
     width: auto;
     object-fit: contain;
     filter: brightness(0) saturate(100%) invert(71%) sepia(18%) saturate(1022%) hue-rotate(359deg) brightness(84%) contrast(84%);
@@ -81,40 +91,35 @@ header {
 
 .logo-primary {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: #FFFFFF;
+    font-size: 1.45rem;
+    font-weight: 600;
+    color: var(--off-white);
     text-transform: none;
     letter-spacing: 0;
     white-space: nowrap;
-    transition: text-shadow 0.3s ease;
 }
 
 .logo-secondary {
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 300;
-    color: #FFFFFF;
+    font-size: 0.62rem;
+    font-weight: 500;
+    color: var(--brand-green);
     text-transform: uppercase;
-    letter-spacing: 4px;
+    letter-spacing: 4.5px;
     white-space: nowrap;
-    transition: text-shadow 0.3s ease;
-    margin-top: -2px;
+    margin-top: 2px;
 }
 
-.logo:hover .logo-primary,
-.logo:hover .logo-secondary {
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-}
-
-/* Menu de Navegação - Painel de Controle (Abas) */
+/* Menu de Navegação — Editorial Tab Set */
 nav {
     display: flex;
-    gap: 5px;
+    gap: 0.25rem;
     overflow-x: auto;
-    max-width: 80%;
+    flex: 1 1 auto;
+    min-width: 0;
     scrollbar-width: none;
     align-items: center;
+    justify-content: center;
 }
 
 nav::-webkit-scrollbar {
@@ -122,19 +127,34 @@ nav::-webkit-scrollbar {
 }
 
 .tab-btn {
+    position: relative;
     background: transparent;
     color: var(--text-muted);
-    border: 1px solid transparent;
-    padding: 0.4rem 0.8rem;
-    font-size: 0.78rem;
+    border: 0;
+    padding: 0.55rem 0.95rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
     font-weight: 600;
     cursor: pointer;
-    border-radius: 999px;
-    transition: all 0.3s ease;
+    border-radius: 0;
+    transition: color 0.25s ease;
     white-space: nowrap;
-    text-transform: none;
-    letter-spacing: 0;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
     flex-shrink: 0;
+}
+
+.tab-btn::after {
+    content: '';
+    position: absolute;
+    left: 0.95rem;
+    right: 0.95rem;
+    bottom: 0.25rem;
+    height: 1px;
+    background: var(--brand-green);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ── Hamburger Button (hidden on desktop) ── */
@@ -248,16 +268,59 @@ nav::-webkit-scrollbar {
 }
 
 .tab-btn:hover {
-    color: white;
-    background: var(--glass-bg);
-    border-color: var(--plasma-border);
+    color: var(--off-white);
+    background: transparent;
+}
+
+.tab-btn:hover::after {
+    transform: scaleX(0.6);
+    background: rgba(184, 150, 90, 0.55);
 }
 
 .tab-btn.active {
+    color: var(--brand-green);
+    background: transparent;
+    box-shadow: none;
+}
+
+.tab-btn.active::after {
+    transform: scaleX(1);
+    background: var(--brand-green);
+}
+
+/* Anchor CTA pinned to the right of the navbar */
+.nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+    padding: 0.55rem 1.1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.6px;
+    color: var(--brand-green);
+    background: transparent;
+    border: 1px solid rgba(184, 150, 90, 0.45);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: color 0.25s ease, background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.nav-cta svg {
+    transition: transform 0.25s ease;
+}
+
+.nav-cta:hover {
     color: #07111D;
     background: var(--brand-green);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
     border-color: var(--brand-green);
+    box-shadow: 0 8px 20px -8px rgba(184, 150, 90, 0.65);
+}
+
+.nav-cta:hover svg {
+    transform: translate(2px, -2px);
 }
 
 /* Área de Estase (Main Content) */
@@ -1372,18 +1435,30 @@ p {
 /* ── ≤ 1024px (tablet landscape + small desktop) ─────────── */
 @media (max-width: 1024px) {
     header {
-        padding: 0.9rem 1.5rem;
-        gap: 0.75rem;
+        padding: 0.85rem 1.5rem;
+        gap: 1rem;
     }
 
     nav {
-        max-width: 100%;
-        gap: 6px;
+        gap: 0.15rem;
+        justify-content: flex-start;
     }
 
     .tab-btn {
-        padding: 0.45rem 0.85rem;
-        font-size: 0.78rem;
+        padding: 0.5rem 0.7rem;
+        font-size: 0.68rem;
+        letter-spacing: 1.2px;
+    }
+
+    .tab-btn::after {
+        left: 0.7rem;
+        right: 0.7rem;
+    }
+
+    .nav-cta {
+        padding: 0.5rem 0.85rem;
+        font-size: 0.68rem;
+        letter-spacing: 1.4px;
     }
 
     main {
@@ -1477,35 +1552,60 @@ p {
 /* ── ≤ 768px (tablet portrait / large phone) ─────────── */
 @media (max-width: 768px) {
 
-    /* Header: two rows — logo on top, nav below */
+    /* Header: logo + briefing on top row, nav scrolls below */
     header {
-        flex-direction: column;
-        padding: 0.75rem 1rem;
-        gap: 0.6rem;
+        flex-wrap: wrap;
+        padding: 0.7rem 1rem;
+        gap: 0.5rem 0.8rem;
+        row-gap: 0.5rem;
     }
 
     .logo {
-        gap: 0;
+        gap: 10px;
+        order: 1;
+        flex: 1 1 auto;
     }
 
     .logo-mark {
-        height: 36px;
+        height: 34px;
     }
 
-    .logo-text-container {
-        display: none;
+    .logo-primary {
+        font-size: 1.15rem;
+    }
+
+    .logo-secondary {
+        font-size: 0.55rem;
+        letter-spacing: 3.5px;
     }
 
     nav {
-        max-width: 100%;
+        order: 3;
+        flex: 1 1 100%;
         width: 100%;
+        max-width: 100%;
         padding-bottom: 4px;
         justify-content: flex-start;
+        gap: 0.1rem;
+    }
+
+    .nav-cta {
+        order: 2;
+        padding: 0.45rem 0.85rem;
+        font-size: 0.65rem;
+        letter-spacing: 1.3px;
     }
 
     .tab-btn {
-        padding: 0.4rem 0.75rem;
-        font-size: 0.75rem;
+        padding: 0.4rem 0.6rem;
+        font-size: 0.62rem;
+        letter-spacing: 1px;
+    }
+
+    .tab-btn::after {
+        left: 0.6rem;
+        right: 0.6rem;
+        bottom: 0.15rem;
     }
 
     main {

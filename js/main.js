@@ -25,6 +25,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    /* Nav anchor CTA (Briefing) — delegates to the corresponding tab */
+    const navCta = document.querySelector('.nav-cta');
+    if (navCta) {
+        navCta.addEventListener('click', () => {
+            const targetId = navCta.getAttribute('data-target');
+            const targetTab = document.querySelector(`.tab-btn[data-target="${targetId}"]`);
+            if (targetTab) targetTab.click();
+        });
+    }
+
+    /* Navbar: increase blur & contrast when user scrolls past the hero */
+    const headerEl = document.querySelector('header');
+    if (headerEl) {
+        const onScroll = () => {
+            if (window.scrollY > 24) headerEl.classList.add('is-scrolled');
+            else headerEl.classList.remove('is-scrolled');
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+    }
+
     /* --- MÓDULO 2: Decodificador de Mensagens (FAQ Accordion) --- */
     const faqItems = document.querySelectorAll('.faq-item');
     faqItems.forEach(item => {
