@@ -12,13 +12,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const tabs = document.querySelectorAll('.tab-btn');
     const sections = document.querySelectorAll('.section');
 
+    const navAnchors = document.querySelectorAll('.nav-cta[data-target]');
+
     window.switchSection = function (targetId) {
         if (!targetId) return;
         tabs.forEach(t => t.classList.remove('active'));
         sections.forEach(s => s.classList.remove('active'));
+        navAnchors.forEach(a => a.classList.remove('active'));
 
         const matchingTab = document.querySelector(`.tab-btn[data-target="${targetId}"]`);
         if (matchingTab) matchingTab.classList.add('active');
+
+        // Promote nav anchor CTAs (Briefing) to first-class navigation when
+        // their target section is the active one — visual parity with tabs.
+        navAnchors.forEach(a => {
+            if (a.getAttribute('data-target') === targetId) a.classList.add('active');
+        });
 
         const targetSection = document.getElementById(targetId);
         if (targetSection) {
