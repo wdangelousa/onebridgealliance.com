@@ -23,10 +23,16 @@
     --copper: #C07D54;
 }
 
-/* Ambiente da Nave (Body) */
+/* Ambiente da Nave (Body) — single navy continuum, no hard ivory seam.
+ * The previous two-tone gradient assumed all sections rendered together;
+ * with section-by-section visibility the 46% breakpoint compressed into
+ * mid-hero, killing the seamless transition. Sections that need a light
+ * surface declare it on their own cards. */
 body {
     background:
-        linear-gradient(180deg, #07111D 0%, #0A1723 46%, #F3EFE7 46%, #F7F2EA 100%);
+        radial-gradient(ellipse 110% 60% at 50% 0%, #0E1B29 0%, transparent 60%),
+        linear-gradient(180deg, #07111D 0%, #0A1723 60%, #07111D 100%);
+    background-attachment: fixed;
     color: var(--text-light);
     min-height: 100vh;
     display: flex;
@@ -113,13 +119,13 @@ header.is-scrolled {
 /* Menu de Navegação — Editorial Tab Set */
 nav {
     display: flex;
-    gap: 0.25rem;
+    gap: 0.1rem;
     overflow-x: auto;
     flex: 1 1 auto;
     min-width: 0;
     scrollbar-width: none;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 nav::-webkit-scrollbar {
@@ -131,24 +137,24 @@ nav::-webkit-scrollbar {
     background: transparent;
     color: var(--text-muted);
     border: 0;
-    padding: 0.55rem 0.95rem;
+    padding: 0.55rem 0.65rem;
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     font-weight: 600;
     cursor: pointer;
     border-radius: 0;
     transition: color 0.25s ease;
     white-space: nowrap;
     text-transform: uppercase;
-    letter-spacing: 1.4px;
+    letter-spacing: 1.05px;
     flex-shrink: 0;
 }
 
 .tab-btn::after {
     content: '';
     position: absolute;
-    left: 0.95rem;
-    right: 0.95rem;
+    left: 0.65rem;
+    right: 0.65rem;
     bottom: 0.25rem;
     height: 1px;
     background: var(--brand-green);
@@ -883,10 +889,10 @@ p {
 
 /* Carrossel do Pitch Deck */
 .usa-bridge-svg {
-    opacity: 0.95;
+    opacity: 0.85;
     filter:
-        saturate(1.05)
-        drop-shadow(0 0 32px rgba(0, 255, 159, 0.10))
+        saturate(0.85)
+        drop-shadow(0 0 40px rgba(184, 150, 90, 0.08))
         drop-shadow(0 24px 48px rgba(0, 0, 0, 0.45));
 }
 
@@ -1679,40 +1685,50 @@ p {
     min-width: 560px;
 }
 
-/* ── ≤ 1024px (tablet landscape + small desktop) ─────────── */
-@media (max-width: 1024px) {
+/* ── ≤ 1280px — navbar density only (hero stays 2-col) ── */
+@media (max-width: 1280px) {
     header {
         padding: 0.85rem 1.5rem;
         gap: 1rem;
     }
 
     nav {
-        gap: 0.15rem;
+        gap: 0;
         justify-content: flex-start;
     }
 
     .tab-btn {
-        padding: 0.5rem 0.7rem;
-        font-size: 0.68rem;
-        letter-spacing: 1.2px;
+        padding: 0.45rem 0.42rem;
+        font-size: 0.64rem;
+        letter-spacing: 0.6px;
     }
 
     .tab-btn::after {
-        left: 0.7rem;
-        right: 0.7rem;
+        left: 0.42rem;
+        right: 0.42rem;
     }
 
     .nav-cta {
-        padding: 0.5rem 0.85rem;
-        font-size: 0.68rem;
-        letter-spacing: 1.4px;
+        padding: 0.42rem 0.72rem;
+        font-size: 0.64rem;
+        letter-spacing: 1px;
     }
 
+    .logo-mark {
+        height: 38px;
+    }
+
+    .logo-primary {
+        font-size: 1.3rem;
+    }
+}
+
+/* ── ≤ 1024px — hero collapses to single column + main padding ── */
+@media (max-width: 1024px) {
     main {
         padding: 3rem 1.5rem;
     }
 
-    /* Hero: stack content above the map (no longer flex — grid based) */
     .hero-section {
         min-height: auto;
         margin-top: -3rem;
@@ -1759,7 +1775,6 @@ p {
         background: linear-gradient(90deg, transparent, rgba(184, 150, 90, 0.35), transparent);
     }
 
-    /* SVG map: cap size for tablet */
     .usa-bridge-svg {
         max-width: 480px !important;
     }
