@@ -208,28 +208,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-/* --- MÓDULO 3: Projeção Holográfica (Pitch Deck Carousel) --- */
-let currentSlideIndex = 0;
-const pitchSlides = document.querySelectorAll('.pitch-slide');
-const pitchDots = document.querySelectorAll('.slide-dot');
-
-window.changeSlide = function (index) {
-    pitchSlides.forEach(s => s.classList.remove('active'));
-    pitchDots.forEach(d => d.classList.remove('active'));
-
-    currentSlideIndex = index % pitchSlides.length;
-
-    pitchSlides[currentSlideIndex].classList.add('active');
-    pitchDots[currentSlideIndex].classList.add('active');
-};
-
-/* Auto-piloto do holograma: Atualização do slide */
-setInterval(() => {
-    const painelSection = document.getElementById('pitch-deck');
-    if (painelSection && painelSection.classList.contains('active')) {
-        changeSlide(currentSlideIndex + 1);
-    }
-}, 6500);
+/* Pitch deck carousel removed in Phase 2 — hero now uses a single static
+ * headline + subheadline. Stub kept on window in case any external link
+ * still references changeSlide(). */
+window.changeSlide = function () { /* no-op */ };
 
 /* --- MÓDULO FAQ: Formulário de Pergunta Específica (24h) --- */
 window.submitFaqForm = async function (e) {

@@ -430,14 +430,26 @@ p {
     box-shadow: none;
 }
 
+.hero-headline {
+    margin-bottom: 0.5rem;
+}
+
+.hero-subhead {
+    max-width: 640px;
+    margin-top: 1.25rem;
+    color: rgba(225, 232, 240, 0.86);
+    font-size: 1.15rem;
+    line-height: 1.55;
+}
+
 .trust-strip {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 1px;
-    margin-top: 2rem;
+    margin-top: 2.25rem;
     border: 1px solid rgba(244, 236, 222, 0.12);
     background: rgba(244, 236, 222, 0.08);
-    max-width: 760px;
+    max-width: 880px;
 }
 
 .trust-strip div {
@@ -1418,6 +1430,7 @@ p {
     .trust-strip {
         margin-left: auto;
         margin-right: auto;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     /* WSF highlight card */
