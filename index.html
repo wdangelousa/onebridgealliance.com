@@ -5,10 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Onebridge Stalwart — Infraestrutura Internacional White-Label</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&amp;family=Montserrat:wght@300;400;500;600;700&amp;display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-        crossorigin="anonymous" />
+
+    <!-- Font Awesome carregada com baixa prioridade (não bloqueia primeira renderização) -->
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        crossorigin="anonymous"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+            crossorigin="anonymous">
+    </noscript>
 
     <link rel="stylesheet" href="css/style.css">
 
@@ -64,7 +75,7 @@
 
     <header>
         <div class="logo">
-            <img src="logomark.png" alt="Onebridge Mark" class="logo-mark">
+            <img src="logomark.png" alt="Onebridge Mark" class="logo-mark" width="563" height="575" decoding="async">
             <div class="logo-text-container">
                 <span class="logo-primary">Onebridge</span>
                 <span class="logo-secondary">Stalwart</span>
