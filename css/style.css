@@ -518,19 +518,122 @@ p {
 /* --- Estilos Específicos por Seção --- */
 
 /* 1. HERO / PITCH DECK */
-.hero {
+/* ─────────────────────────────────────────────────────────
+   HERO — Cinematic editorial layout (Phase 3)
+   ───────────────────────────────────────────────────────── */
+.hero-section {
+    position: relative;
+    min-height: 92vh;
+    margin-top: -5rem;          /* swallow main's top padding so the canvas reaches the navbar */
+    padding-top: 5rem;
+    padding-bottom: 4rem;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Full-bleed ambient layer — escapes the 1240px container */
+.hero-bg-layer {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.bg-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(72px);
+    opacity: 0.55;
+    will-change: transform, opacity;
+    animation: heroGlowDrift 18s ease-in-out infinite alternate;
+}
+
+.bg-glow-gold {
+    width: 720px;
+    height: 720px;
+    top: -180px;
+    left: 8%;
+    background: radial-gradient(circle, rgba(184, 150, 90, 0.32) 0%, rgba(184, 150, 90, 0.08) 45%, transparent 70%);
+}
+
+.bg-glow-emerald {
+    width: 560px;
+    height: 560px;
+    bottom: -120px;
+    right: 10%;
+    background: radial-gradient(circle, rgba(0, 255, 159, 0.16) 0%, rgba(0, 255, 159, 0.05) 50%, transparent 75%);
+    animation-duration: 22s;
+    animation-delay: -6s;
+}
+
+@keyframes heroGlowDrift {
+    0%   { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(40px, -22px) scale(1.06); }
+}
+
+.bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(to right, rgba(244, 236, 222, 0.035) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(244, 236, 222, 0.035) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 0%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 0%, transparent 80%);
+    opacity: 0.6;
+}
+
+/* Hero content — editorial asymmetric grid */
+.hero {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
     align-items: center;
-    justify-content: space-between;
-    min-height: 68vh;
-    gap: 5rem;
+    gap: 3rem;
+    flex: 1;
 }
 
 .hero-content {
-    flex: 1;
     z-index: 10;
 }
 
+/* Eyebrow — McKinsey-style platform descriptor */
+.hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.45rem 1rem 0.45rem 0.75rem;
+    background: rgba(7, 17, 29, 0.55);
+    border: 1px solid rgba(184, 150, 90, 0.32);
+    border-radius: 999px;
+    color: rgba(244, 236, 222, 0.9);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.66rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2.4px;
+    margin-bottom: 2.25rem;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    animation: heroFadeUp 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.05s both;
+}
+
+.hero-eyebrow-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--brand-green);
+    box-shadow: 0 0 0 3px rgba(184, 150, 90, 0.18), 0 0 12px rgba(184, 150, 90, 0.45);
+}
+
+/* Keep legacy .hero-badge harmless — used in other sections */
 .hero-badge {
     display: inline-block;
     padding: 0.5rem 1.2rem;
@@ -547,17 +650,123 @@ p {
 }
 
 .hero-headline {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0;
+    animation: heroFadeUp 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.18s both;
+}
+
+.hero-headline h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    line-height: 1.04;
+    letter-spacing: -0.005em;
+    color: var(--off-white);
+    margin-bottom: 0;
+}
+
+.headline-line {
+    display: block;
+}
+
+.headline-accent {
+    color: rgba(244, 236, 222, 0.78);
+    font-style: italic;
+    font-weight: 500;
 }
 
 .hero-subhead {
-    max-width: 640px;
-    margin-top: 1.25rem;
-    color: rgba(225, 232, 240, 0.86);
-    font-size: 1.15rem;
-    line-height: 1.55;
+    max-width: 580px;
+    margin-top: 1.5rem;
+    color: rgba(225, 232, 240, 0.78);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 300;
+    line-height: 1.6;
+    animation: heroFadeUp 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.32s both;
 }
 
+.institutional-note {
+    max-width: 600px;
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+    color: rgba(174, 183, 194, 0.62);
+    font-size: 0.72rem;
+    line-height: 1.65;
+    letter-spacing: 0.01em;
+    animation: heroFadeUp 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s both;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2.25rem;
+    flex-wrap: wrap;
+    align-items: center;
+    animation: heroFadeUp 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.46s both;
+}
+
+@keyframes heroFadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─────────────────────────────────────────────────────────
+   Institutional ribbon — replaces the trust-strip block.
+   Single horizontal band across the bottom of the hero.
+   ───────────────────────────────────────────────────────── */
+.institutional-ribbon {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem 2.5rem;
+    margin-top: 3.5rem;
+    padding: 1.25rem 1.75rem;
+    background: linear-gradient(180deg, rgba(7, 17, 29, 0.55) 0%, rgba(7, 17, 29, 0.35) 100%);
+    border: 1px solid rgba(244, 236, 222, 0.08);
+    border-radius: 4px;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    animation: heroFadeUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.74s both;
+}
+
+.ribbon-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.18rem;
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.ribbon-item strong {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--off-white);
+    letter-spacing: 0;
+    line-height: 1.15;
+}
+
+.ribbon-item em {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.62rem;
+    font-style: normal;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.6px;
+    color: var(--brand-green);
+    line-height: 1.2;
+}
+
+.ribbon-divider {
+    width: 1px;
+    align-self: stretch;
+    background: linear-gradient(180deg, transparent, rgba(184, 150, 90, 0.35), transparent);
+    flex-shrink: 0;
+}
+
+/* Legacy trust-strip kept for compatibility — no longer used in hero */
 .trust-strip {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -568,45 +777,55 @@ p {
     max-width: 880px;
 }
 
-.trust-strip div {
-    padding: 1rem;
-    background: rgba(7, 17, 29, 0.74);
-}
+.trust-strip div { padding: 1rem; background: rgba(7, 17, 29, 0.74); }
+.trust-strip strong, .trust-strip span { display: block; }
+.trust-strip strong { color: var(--off-white); font-size: 0.78rem; font-weight: 600; margin-bottom: 0.35rem; }
+.trust-strip span { color: var(--text-muted); font-size: 0.78rem; line-height: 1.4; }
 
-.trust-strip strong,
-.trust-strip span {
-    display: block;
-}
-
-.trust-strip strong {
-    color: var(--off-white);
-    font-size: 0.78rem;
-    font-weight: 600;
-    margin-bottom: 0.35rem;
-}
-
-.trust-strip span {
-    color: var(--text-muted);
-    font-size: 0.78rem;
-    line-height: 1.4;
-}
-
-.institutional-note {
-    max-width: 780px;
-    margin-top: 1.25rem;
-    margin-bottom: 0;
-    color: rgba(174, 183, 194, 0.82);
-    font-size: 0.78rem;
-    line-height: 1.6;
-}
-
-/* Hero buttons row */
-.hero-buttons {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1.5rem;
-    flex-wrap: wrap;
+/* ─────────────────────────────────────────────────────────
+   Hero scroll cue — seamless transition signal
+   ───────────────────────────────────────────────────────── */
+.hero-scroll-cue {
+    position: relative;
+    z-index: 2;
+    align-self: center;
+    display: inline-flex;
+    flex-direction: column;
     align-items: center;
+    gap: 0.55rem;
+    margin: 2.5rem auto 0;
+    padding: 0.5rem 0.8rem;
+    background: transparent;
+    border: 0;
+    color: rgba(225, 232, 240, 0.6);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2.6px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    animation: heroFadeUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.95s both;
+}
+
+.hero-scroll-cue:hover {
+    color: var(--brand-green);
+}
+
+.cue-line {
+    width: 1px;
+    height: 32px;
+    background: linear-gradient(180deg, transparent, rgba(184, 150, 90, 0.45));
+}
+
+.cue-arrow {
+    color: rgba(184, 150, 90, 0.65);
+    animation: cueBob 2.4s ease-in-out infinite;
+}
+
+@keyframes cueBob {
+    0%, 100% { transform: translateY(0); opacity: 0.65; }
+    50%      { transform: translateY(4px); opacity: 1; }
 }
 
 /* Orbe de Luz Animado (SVG - Fonte de Energia da Nave) */
@@ -664,8 +883,11 @@ p {
 
 /* Carrossel do Pitch Deck */
 .usa-bridge-svg {
-    opacity: 1;
-    filter: saturate(1) drop-shadow(0 0 12px rgba(0, 255, 159, 0.18));
+    opacity: 0.95;
+    filter:
+        saturate(1.05)
+        drop-shadow(0 0 32px rgba(0, 255, 159, 0.10))
+        drop-shadow(0 24px 48px rgba(0, 0, 0, 0.45));
 }
 
 /* 2. ARSENAL */
@@ -1355,36 +1577,61 @@ p {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    padding: 1.1rem 2.8rem;
-    background: var(--brand-green);
-    color: var(--bg-deep);
-    font-weight: 700;
-    font-size: 1rem;
+    padding: 0.95rem 1.85rem;
+    background: linear-gradient(180deg, #CDA265 0%, #B8965A 50%, #A07F47 100%);
+    color: #07111D;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.82rem;
     border-radius: 999px;
     text-decoration: none;
-    text-transform: none;
-    letter-spacing: 0;
-    transition: all 0.3s ease;
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24);
-    border: 2px solid var(--brand-green);
+    text-transform: uppercase;
+    letter-spacing: 1.6px;
+    transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+                box-shadow 0.3s ease,
+                filter 0.3s ease;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.18),
+        0 8px 18px -6px rgba(184, 150, 90, 0.55),
+        0 14px 32px -10px rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(184, 150, 90, 0.55);
     cursor: pointer;
+}
+
+.btn-cta svg {
+    transition: transform 0.3s ease;
 }
 
 .btn-cta:hover {
     transform: translateY(-2px);
-    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.28);
-    background: #C8A86B;
+    filter: brightness(1.05);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.22),
+        0 12px 26px -6px rgba(184, 150, 90, 0.7),
+        0 18px 40px -10px rgba(0, 0, 0, 0.6);
+}
+
+.btn-cta:hover svg {
+    transform: translate(2px, -2px);
+}
+
+.btn-cta-primary {
+    /* Reserved hook — the gold treatment is already on .btn-cta. */
 }
 
 .btn-outline {
     background: transparent;
-    color: var(--brand-green);
+    color: var(--off-white);
+    border: 1px solid rgba(244, 236, 222, 0.22);
     box-shadow: none;
+    filter: none;
 }
 
 .btn-outline:hover {
-    background: rgba(184, 150, 90, 0.10);
+    background: rgba(244, 236, 222, 0.05);
     color: var(--brand-green);
+    border-color: rgba(184, 150, 90, 0.55);
+    filter: none;
 }
 
 
@@ -1465,14 +1712,20 @@ p {
         padding: 3rem 1.5rem;
     }
 
-    /* Hero: stack content above the map */
-    .hero {
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
+    /* Hero: stack content above the map (no longer flex — grid based) */
+    .hero-section {
         min-height: auto;
+        margin-top: -3rem;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: left;
+        align-items: stretch;
         gap: 2.5rem;
-        padding-top: 1rem;
+        padding-top: 0.5rem;
     }
 
     .hero-content {
@@ -1483,7 +1736,27 @@ p {
     .hero-visual {
         order: 2;
         width: 100%;
-        max-width: 520px;
+        max-width: 540px;
+        margin: 0 auto;
+        justify-self: center;
+    }
+
+    .hero-headline h1 {
+        font-size: clamp(2rem, 5.5vw, 3rem);
+    }
+
+    .institutional-ribbon {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+        margin-top: 2.25rem;
+    }
+
+    .ribbon-divider {
+        width: 100%;
+        height: 1px;
+        align-self: stretch;
+        background: linear-gradient(90deg, transparent, rgba(184, 150, 90, 0.35), transparent);
     }
 
     /* SVG map: cap size for tablet */
@@ -1492,20 +1765,15 @@ p {
     }
 
     .hero-badge {
-        margin: 0 auto 1.5rem;
+        margin-bottom: 1.5rem;
     }
 
-    .hero-headline {
-        text-align: center;
-    }
-
-    .hero-subhead {
-        margin-left: auto;
-        margin-right: auto;
+    .hero-eyebrow {
+        margin-bottom: 1.5rem;
     }
 
     .hero-buttons {
-        justify-content: center;
+        justify-content: flex-start;
     }
 
     .trust-strip {

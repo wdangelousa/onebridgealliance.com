@@ -105,44 +105,37 @@
 
     <main>
 
-        <section id="pitch-deck" class="section active">
+        <section id="pitch-deck" class="section active hero-section">
+            <div class="hero-bg-layer" aria-hidden="true">
+                <div class="bg-glow bg-glow-gold"></div>
+                <div class="bg-glow bg-glow-emerald"></div>
+                <div class="bg-grid"></div>
+            </div>
             <div class="hero">
                 <div class="hero-content">
-                    <span class="hero-badge">Infraestrutura Internacional White-Label</span>
+                    <span class="hero-eyebrow">
+                        <span class="hero-eyebrow-dot" aria-hidden="true"></span>
+                        International Financial Infrastructure Platform
+                    </span>
 
                     <div class="hero-headline">
-                        <h1>Sua infraestrutura internacional.<br>Sua marca. Nossa execução.</h1>
+                        <h1><span class="headline-line">Sua infraestrutura internacional.</span>
+                            <span class="headline-line headline-accent">Sua marca. Nossa execução.</span></h1>
                         <p class="hero-subhead">Bancas de advocacia, tributaristas e consultorias entregam capacidades
                             internacionais sob a própria marca — nossa equipe em Orlando opera a infraestrutura por
                             trás.</p>
                     </div>
 
                     <div class="hero-buttons">
-                        <button class="btn-cta"
-                            onclick="document.querySelector('[data-target=\'proximos\']').click()">Iniciar Briefing de
-                            Parceiro</button>
+                        <button class="btn-cta btn-cta-primary"
+                            onclick="document.querySelector('[data-target=\'proximos\']').click()">
+                            <span>Iniciar Briefing de Parceiro</span>
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                                <path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
                         <button class="btn-cta btn-outline"
-                            onclick="document.querySelector('[data-target=\'arsenal\']').click()">Ver Escopo
-                            Operacional</button>
-                    </div>
-
-                    <div class="trust-strip">
-                        <div>
-                            <strong>Sócio Fundador</strong>
-                            <span>OAB/PE 23.359</span>
-                        </div>
-                        <div>
-                            <strong>Patrimônio Coordenado</strong>
-                            <span>+R$ 2 Bilhões</span>
-                        </div>
-                        <div>
-                            <strong>Cobertura Operacional</strong>
-                            <span>Orlando · Brasil · BVI</span>
-                        </div>
-                        <div>
-                            <strong>Modelo de Entrega</strong>
-                            <span>White-label confidencial</span>
-                        </div>
+                            onclick="document.querySelector('[data-target=\'arsenal\']').click()">Ver Capacidades</button>
                     </div>
 
                     <p class="institutional-note">A Onebridge fornece coordenação operacional e suporte a parceiros.
@@ -160,8 +153,8 @@
                                 <stop offset="100%" stop-color="#F0C040" />
                             </linearGradient>
                             <radialGradient id="mapFill" cx="48%" cy="42%" r="65%">
-                                <stop offset="0%" stop-color="rgba(0,255,160,0.28)" />
-                                <stop offset="100%" stop-color="rgba(0,255,160,0.06)" />
+                                <stop offset="0%" stop-color="rgba(0,255,160,0.18)" />
+                                <stop offset="100%" stop-color="rgba(0,255,160,0.03)" />
                             </radialGradient>
                             <filter id="mapGlow" x="-8%" y="-8%" width="116%" height="116%">
                                 <feGaussianBlur stdDeviation="2.8" result="b" />
@@ -189,9 +182,10 @@
                         <style>
                             .st {
                                 fill: url(#mapFill);
-                                stroke: #00FF9F;
-                                stroke-width: 1.4;
+                                stroke: rgba(0, 255, 159, 0.55);
+                                stroke-width: 0.9;
                                 stroke-linejoin: round;
+                                opacity: 0.78;
                             }
                         </style>
 
@@ -507,6 +501,37 @@
 
                 </div>
             </div>
+
+            <div class="institutional-ribbon" aria-label="Indicadores institucionais">
+                <span class="ribbon-item">
+                    <strong>OAB/PE 23.359</strong>
+                    <em>Sócio Fundador licenciado</em>
+                </span>
+                <span class="ribbon-divider" aria-hidden="true"></span>
+                <span class="ribbon-item">
+                    <strong>+R$ 2 Bilhões</strong>
+                    <em>Patrimônio Coordenado</em>
+                </span>
+                <span class="ribbon-divider" aria-hidden="true"></span>
+                <span class="ribbon-item">
+                    <strong>Orlando · Brasil · BVI</strong>
+                    <em>Cobertura Operacional</em>
+                </span>
+                <span class="ribbon-divider" aria-hidden="true"></span>
+                <span class="ribbon-item">
+                    <strong>White-label confidencial</strong>
+                    <em>Modelo de Entrega</em>
+                </span>
+            </div>
+
+            <button class="hero-scroll-cue" type="button" data-target="arsenal"
+                aria-label="Avançar para Capacidades">
+                <span class="cue-line" aria-hidden="true"></span>
+                <span class="cue-label">Operação</span>
+                <svg class="cue-arrow" width="12" height="14" viewBox="0 0 12 14" fill="none" aria-hidden="true">
+                    <path d="M6 1V13M6 13L1 8M6 13L11 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
         </section>
 
         <section id="arsenal" class="section">

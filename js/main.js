@@ -25,15 +25,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    /* Nav anchor CTA (Briefing) — delegates to the corresponding tab */
-    const navCta = document.querySelector('.nav-cta');
-    if (navCta) {
-        navCta.addEventListener('click', () => {
-            const targetId = navCta.getAttribute('data-target');
+    /* Anchors outside the tab strip (briefing CTA, hero scroll cue) —
+     * delegate to the corresponding tab so existing routing logic
+     * stays the single source of truth. */
+    document.querySelectorAll('.nav-cta[data-target], .hero-scroll-cue[data-target]').forEach(anchor => {
+        anchor.addEventListener('click', () => {
+            const targetId = anchor.getAttribute('data-target');
             const targetTab = document.querySelector(`.tab-btn[data-target="${targetId}"]`);
             if (targetTab) targetTab.click();
         });
-    }
+    });
 
     /* Navbar: increase blur & contrast when user scrolls past the hero */
     const headerEl = document.querySelector('header');
