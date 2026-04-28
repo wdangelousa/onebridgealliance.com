@@ -1343,19 +1343,17 @@
         async function handleNcndaSubmit(event) {
             event.preventDefault();
 
-            const name = document.getElementById('partner-name').value;
-            const email = document.getElementById('partner-email').value;
+            const name = document.getElementById('partner-name').value.trim();
+            const email = document.getElementById('partner-email').value.trim();
             const submitBtn = document.getElementById('submitNcndaBtn');
             const btnText = document.getElementById('btnText');
             const btnIcon = document.getElementById('btnIcon');
             const successMsg = document.getElementById('ncndaSuccess');
 
-            // 1. UI Loading State
             submitBtn.disabled = true;
-            btnText.innerText = "REGISTRANDO ALIANÇA...";
+            btnText.innerText = "REGISTRANDO ADESÃO...";
             btnIcon.className = "fa-solid fa-circle-notch fa-spin";
 
-            // 2. Simplified Payload for Make.com
             const payload = {
                 partner_name: name,
                 email: email,
@@ -1363,30 +1361,27 @@
             };
 
             try {
-                // 3. Webhook Dispatch
-                const response = await fetch("https://hook.us2.make.com/wpwban74ivy8vym5i8osgvgbwpf3t5sw", {
+                const response = await fetch("/api/ncnda", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(payload)
                 });
 
-                if (response.ok || response.status === 200) {
-                    // 4. Success Transition
+                const data = await response.json().catch(() => ({}));
+
+                if (response.ok && data.ok) {
                     submitBtn.style.display = 'none';
                     successMsg.style.display = 'block';
-
-                    // Optional: Reset form
                     event.target.reset();
                 } else {
-                    throw new Error("Falha no disparo do Webhook");
+                    throw new Error(data.error || "Falha ao registrar adesão.");
                 }
             } catch (err) {
                 console.error("Erro na automação:", err);
                 alert("Ocorreu um erro ao registrar sua adesão. Por favor, tente novamente ou contate o suporte.");
 
-                // Restore button
                 submitBtn.disabled = false;
-                btnText.innerText = "LI E ACEITO A ALIANÇA B2B";
+                btnText.innerText = "LI E ACEITO O FRAMEWORK B2B";
                 btnIcon.className = "fa-solid fa-signature";
             }
         }

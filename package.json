@@ -1,0 +1,9 @@
+{
+  "name": "onebridge-alliance",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Onebridge Stalwart institutional landing — static front-end with Vercel serverless API.",
+  "engines": {
+    "node": ">=20"
+  }
+}

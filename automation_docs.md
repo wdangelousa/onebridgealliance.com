@@ -7,7 +7,10 @@ Este documento descreve o fluxo de automação e o template de e-mail "High-Tick
 **Cenário:** `Portal Onboarding -> Welcome Email`
 
 1.  **Módulo Webhook (Custom Webhook):**
-    *   **URL:** `https://hook.us2.make.com/wpwban74ivy8vym5i8osgvgbwpf3t5sw`
+    *   **URL:** *não publicar.* Configure como variável de ambiente
+        `MAKE_NCNDA_WEBHOOK_URL` (Vercel → Project → Settings → Environment
+        Variables). O front-end nunca chama esse webhook diretamente — todo o
+        tráfego passa pela rota serverless `/api/ncnda`.
     *   **Payload esperado:**
         ```json
         {

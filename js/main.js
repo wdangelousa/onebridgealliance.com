@@ -40,17 +40,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    /* --- MÓDULO SIGNWELL: Integração via API (Privado) --- */
+    /* --- MÓDULO SIGNWELL: Integração via /api/signwell-document ---
+     * Toda a comunicação com a SignWell é feita pelo backend serverless.
+     * Nenhuma API key da SignWell deve ser referenciada neste arquivo.
+     * Para acionar a criação de documento, faça POST para /api/signwell-document
+     * com { partner_name, partner_email, partner_company, partner_country,
+     *      partner_tax_id, partner_address } e use a embedded_signing_url
+     * retornada pelo endpoint.
+     */
     const createBtn = document.getElementById('create-signwell-btn');
     const signContainer = document.getElementById('signwell-container');
     const iframe = document.querySelector('.signwell-iframe');
     const btnText = document.getElementById('btn-text');
     const btnLoader = document.getElementById('btn-loader');
-
-    // Mantenha essa chave segura. Como o app é privado, estamos rodando client-side.
-    const SIGNWELL_API_KEY = "YWNjZXNzOmFkMTAwZGRiMDhjNWZlMjhhOWZjNzM5ZGY2YjM1OGJl";
-    // IMPORTANTE: Insira aqui o Template ID do NCNDA lá do seu painel do SignWell
-    const TEMPLATE_ID = "SEU_TEMPLATE_ID_AQUI";
 
     if (createBtn && signContainer) {
         createBtn.addEventListener('click', async () => {
@@ -66,84 +68,48 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // Estado de carregamento 
             createBtn.disabled = true;
-            btnText.style.display = 'none';
-            btnLoader.style.display = 'block';
+            if (btnText) btnText.style.display = 'none';
+            if (btnLoader) btnLoader.style.display = 'block';
 
             try {
-                // 1. Requisito para API SignWell para criar o documento
-                const response = await fetch('https://www.signwell.com/api/v1/document_templates/' + TEMPLATE_ID + '/documents', {
+                const response = await fetch('/api/signwell-document', {
                     method: 'POST',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json',
-                        'X-Api-Key': SIGNWELL_API_KEY
-                    },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        test_mode: false, // Pode mudar pra true em testes
-                        name: `NCNDA - ${partnerName} ${partnerCompany ? '(' + partnerCompany + ')' : ''} & Onebridge Stalwart`,
-                        template_id: TEMPLATE_ID,
-                        embedded_signing: true,
-                        embedded_signing_dialog: true,
-                        // Injetando toda a qualificação global do Parceiro no Documento
-                        template_fields: [
-                            {
-                                api_id: "Name", // Nome Completo do Representante
-                                value: partnerName
-                            },
-                            {
-                                api_id: "Company", // Nome da Entidade (LLC/LTDA/Corp)
-                                value: partnerCompany || "N/A - Pessoa Física"
-                            },
-                            {
-                                api_id: "Country", // País Base
-                                value: partnerCountry
-                            },
-                            {
-                                api_id: "TaxID", // EIN, CNPJ, SSN, NIF, etc.
-                                value: partnerTaxId || "Não Informado"
-                            },
-                            {
-                                api_id: "Address", // Endereço Completo
-                                value: partnerAddress || "Não Informado"
-                            }
-                        ],
-                        recipients: [
-                            {
-                                id: "1",
-                                name: partnerName,
-                                email: partnerEmail
-                            }
-                        ]
+                        partner_name: partnerName,
+                        partner_email: partnerEmail,
+                        partner_company: partnerCompany,
+                        partner_country: partnerCountry,
+                        partner_tax_id: partnerTaxId,
+                        partner_address: partnerAddress
                     })
                 });
 
-                const data = await response.json();
+                const data = await response.json().catch(() => ({}));
 
-                if (!response.ok) {
-                    throw new Error(data.message || "Falha na comunicação com o servidor.");
+                if (!response.ok || !data.ok) {
+                    throw new Error(data.error || "Falha na comunicação com o servidor.");
                 }
 
-                // 2. Extrai a URL para o iFrame onde o usuário vai assinar
-                const embeddedLink = data.recipients[0].embedded_signing_url;
+                const embeddedLink = data.embedded_signing_url;
+                if (!embeddedLink) {
+                    throw new Error("URL de assinatura não retornada pelo servidor.");
+                }
 
-                // 3. Oculta o form, Mostra o iFrame com o Doc
-                document.getElementById('signwell-form-container').style.display = 'none';
+                const formContainer = document.getElementById('signwell-form-container');
+                if (formContainer) formContainer.style.display = 'none';
                 iframe.src = embeddedLink;
                 signContainer.style.display = 'block';
-
-                // Rola a página suavemente pro documento
                 signContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
             } catch (error) {
                 console.error("Erro no SignWell:", error);
-                alert("Houve uma falha na matriz de assinaturas. Verifique se o Template ID foi inserido no código ou contate o Engenheiro.");
+                alert("Houve uma falha ao iniciar a assinatura. Tente novamente em instantes ou contate o suporte.");
 
-                // Reseta estado
                 createBtn.disabled = false;
-                btnText.style.display = 'block';
-                btnLoader.style.display = 'none';
+                if (btnText) btnText.style.display = 'block';
+                if (btnLoader) btnLoader.style.display = 'none';
             }
         });
     }
@@ -236,14 +202,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 renderMessage(response, 'bot');
             }, 1000);
 
-            // Interface pronta para integração futura com LLM (Make.com Custom Webhook)
-            /* 
-            fetch('https://hook.us2.make.com/...', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ message: userText, persona: "Senior_Concierge_v2" })
-            });
-            */
+            // Integração futura com LLM deve passar por uma rota serverless dedicada
+            // (ex: /api/ai-concierge), nunca chamando o webhook diretamente do front-end.
         }
     }
 });
