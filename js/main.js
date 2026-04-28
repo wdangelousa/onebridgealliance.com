@@ -31,8 +31,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const targetSection = document.getElementById(targetId);
         if (targetSection) {
+            // Jump instantly to the top so the section's entry animation
+            // reads as a clean "page change", not a scroll-down reveal.
+            window.scrollTo({ top: 0, behavior: 'auto' });
             targetSection.classList.add('active');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     };
 
