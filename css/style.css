@@ -584,8 +584,8 @@ p {
 }
 
 .usa-bridge-svg {
-    opacity: 0.76;
-    filter: saturate(0.62) sepia(0.12);
+    opacity: 1;
+    filter: saturate(1) drop-shadow(0 0 12px rgba(0, 255, 159, 0.18));
 }
 
 /* 2. ARSENAL */
